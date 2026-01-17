@@ -6,7 +6,7 @@ export default function StaggerContainer({
   className = "",
   delay = 0,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   delay?: number;
 }) {
@@ -35,7 +35,7 @@ export const StaggerItem = ({
   children,
   className = "",
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 }) => {
   return (

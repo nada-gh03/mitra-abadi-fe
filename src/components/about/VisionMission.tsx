@@ -1,4 +1,6 @@
 import React from "react";
+import FadeIn from "../animations/FadeIn";
+import StaggerContainer, { StaggerItem } from "../animations/StaggerContainer";
 
 const VisionMission: React.FC = () => {
   const missions = [
@@ -32,20 +34,23 @@ const VisionMission: React.FC = () => {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-40 bg-[#f8f7f5]">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
-        <div className="text-center mb-4">
+        <FadeIn className="text-center mb-4">
           <h2 className="text-3xl md:text-4xl font-bold text-navy">
             Vision & Mission
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
-        </div>
+        </FadeIn>
 
-        <div className="w-full bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-10 flex flex-col md:flex-row items-center md:items-start gap-8 relative overflow-hidden group">
+        <FadeIn
+          delay={0.2}
+          className="w-full bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-10 flex flex-col md:flex-row items-center md:items-start gap-8 relative overflow-hidden group hover:shadow-lg transition-shadow duration-500"
+        >
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none">
             <span className="material-symbols-outlined text-[200px] text-primary">
               visibility
             </span>
           </div>
-          <div className="flex-shrink-0 size-20 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+          <div className="flex-shrink-0 size-20 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
             <span className="material-symbols-outlined text-4xl">
               lightbulb
             </span>
@@ -58,11 +63,11 @@ const VisionMission: React.FC = () => {
               standar kualitas industri masa depan."
             </p>
           </div>
-        </div>
+        </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {missions.map((m, idx) => (
-            <div
+            <StaggerItem
               key={idx}
               className="bg-white p-8 rounded-2xl shadow-sm border-l-4 border-primary hover:-translate-y-1 transition-transform duration-300 group"
             >
@@ -73,9 +78,9 @@ const VisionMission: React.FC = () => {
               </div>
               <h4 className="text-lg font-bold text-navy mb-2">{m.title}</h4>
               <p className="text-sm text-gray-600 leading-relaxed">{m.desc}</p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
