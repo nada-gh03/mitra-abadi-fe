@@ -3,6 +3,7 @@ import { Space_Grotesk, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import NextTopLoader from "nextjs-toploader";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -36,6 +37,15 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased selection:bg-primary selection:text-navy">
+        <NextTopLoader
+          color="#fdb612"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={5}
+          showSpinner={false}
+          shadow="0 0 10px #fdb612,0 0 5px #fdb612"
+        />
+
         <Navbar />
         {children}
         <Footer />
