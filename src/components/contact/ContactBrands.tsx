@@ -3,7 +3,7 @@ import React from "react";
 const ContactBrands: React.FC = () => {
   const brands = [
     { id: "TWA", name: "PT Trimitra Warna Abadi" },
-    { id: "MC", name: "MASS Chemical", primary: true },
+    { id: "MC", name: "PT Mitra Abadi Sinar Selaras", primary: true },
     { id: "MASS", name: "PT Mitra Abadi Selaras Sejahtera" },
   ];
 
@@ -20,11 +20,7 @@ const ContactBrands: React.FC = () => {
               className="group flex flex-col items-center gap-3 cursor-pointer"
             >
               <div
-                className={`h-16 w-16 bg-navy/10 rounded-full flex items-center justify-center text-navy font-bold text-2xl transition-colors ${
-                  brand.primary
-                    ? "group-hover:bg-primary group-hover:text-navy"
-                    : "group-hover:bg-navy group-hover:text-white"
-                }`}
+                className={`h-16 w-16 bg-navy/10 rounded-full flex items-center justify-center text-navy font-bold text-2xl transition-colors ${brand.primary ? "group-hover:bg-primary group-hover:text-navy" : "group-hover:bg-navy group-hover:text-white"}`}
               >
                 {brand.id}
               </div>

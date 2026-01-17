@@ -47,12 +47,12 @@ const Footer: React.FC = () => {
                   <li key={item}>
                     <Link
                       className="text-white/60 hover:text-primary transition-colors text-sm"
-                      href="#"
+                      href="/about"
                     >
                       {item}
                     </Link>
                   </li>
-                )
+                ),
               )}
             </ul>
           </div>
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
                 <li key={item}>
                   <Link
                     className="text-white/60 hover:text-primary transition-colors text-sm"
-                    href="#"
+                    href="/products"
                   >
                     {item}
                   </Link>
@@ -86,16 +86,21 @@ const Footer: React.FC = () => {
                   location_on
                 </span>
                 <span>
-                  Jl. Industri Raya No. 45
+                  Kp. Kebon baru no 88, Babat, Legok,
                   <br />
-                  Jakarta Barat, Indonesia 11000
+                  Kabupaten Tangerang, Banten.
                 </span>
               </li>
               <li className="flex items-center gap-3 text-white/60 text-sm">
                 <span className="material-symbols-outlined text-primary text-lg">
                   call
                 </span>
-                <span>+62 21 555 0123</span>
+                <a
+                  href="tel:6289526543505"
+                  className="hover:text-primary transition-colors"
+                >
+                  0895-2654-3505
+                </a>
               </li>
               <li className="flex items-center gap-3 text-white/60 text-sm">
                 <span className="material-symbols-outlined text-primary text-lg">

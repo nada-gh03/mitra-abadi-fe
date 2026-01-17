@@ -21,11 +21,11 @@ const ContactMap: React.FC = () => {
         <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 pointer-events-auto bg-white p-5 rounded-lg shadow-xl max-w-[320px] border-l-4 border-primary">
           <h5 className="text-navy font-bold text-lg mb-1">Pabrik Utama</h5>
           <p className="text-xs text-gray-500 mb-3">
-            Mitra Abadi Group, Legok, Tangerang
+            Kp. Kebon baru no 88, Babat, Legok, Tangerang
           </p>
           <a
             className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-navy transition-colors"
-            href="https://maps.google.com"
+            href="https://maps.google.com/?q=Kp.+Kebon+baru+no+88,+Babat,+Legok,+Kabupaten+Tangerang,+Banten"
             target="_blank"
             rel="noopener noreferrer"
           >

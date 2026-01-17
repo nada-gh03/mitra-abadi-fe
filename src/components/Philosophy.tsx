@@ -3,7 +3,7 @@ import React from "react";
 const Philosophy: React.FC = () => {
   const companies = [
     { name: "PT TRIMITRA WARNA ABADI", color: "bg-[#0f172a]" },
-    { name: "MASS CHEMICAL", color: "bg-primary" },
+    { name: "PT MITRA ABADI SINAR SELARAS", color: "bg-primary" },
     { name: "PT MITRA ABADI SELARAS SEJAHTERA", color: "bg-gray-600" },
   ];
 
