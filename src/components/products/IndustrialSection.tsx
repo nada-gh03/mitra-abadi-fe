@@ -1,4 +1,6 @@
 import React from "react";
+import FadeIn from "../animations/FadeIn";
+import StaggerContainer, { StaggerItem } from "../animations/StaggerContainer";
 
 const IndustrialSection: React.FC = () => {
   const products = [
@@ -43,24 +45,27 @@ const IndustrialSection: React.FC = () => {
       id="industrial"
       className="w-full max-w-[1200px] flex flex-col gap-8 scroll-mt-32"
     >
-      <div className="flex items-center gap-4">
+      <FadeIn className="flex items-center gap-4">
         <span className="text-6xl font-black text-gray-200 select-none -mb-3">
           I.
         </span>
         <h2 className="text-navy text-2xl lg:text-3xl font-bold leading-tight pt-3">
           Industrial Coatings
         </h2>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      </FadeIn>
+
+      <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((item, idx) => (
-          <div
+          <StaggerItem
             key={idx}
-            className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col h-full"
+            className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col h-full group"
           >
-            <div
-              className="h-48 w-full bg-cover bg-center"
-              style={{ backgroundImage: `url('${item.img}')` }}
-            ></div>
+            <div className="h-48 w-full overflow-hidden">
+              <div
+                className="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: `url('${item.img}')` }}
+              ></div>
+            </div>
             <div className="p-6 flex flex-col flex-1">
               <h3 className="text-navy text-lg font-bold mb-3">{item.title}</h3>
               <ul className="space-y-2 text-sm text-gray-600 flex-1">
@@ -72,9 +77,9 @@ const IndustrialSection: React.FC = () => {
                 ))}
               </ul>
             </div>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </section>
   );
 };

@@ -1,4 +1,6 @@
 import React from "react";
+import FadeIn from "../animations/FadeIn";
+import StaggerContainer, { StaggerItem } from "../animations/StaggerContainer";
 
 const ProtectiveSection: React.FC = () => {
   const protectiveItems = [
@@ -38,17 +40,17 @@ const ProtectiveSection: React.FC = () => {
       id="protective"
       className="w-full max-w-[1200px] flex flex-col gap-8 scroll-mt-32"
     >
-      <div className="flex items-center gap-4">
+      <FadeIn className="flex items-center gap-4">
         <span className="text-6xl font-black text-gray-200 select-none -mb-3">
           II.
         </span>
         <h2 className="text-navy text-2xl lg:text-3xl font-bold leading-tight pt-3">
           Protective & Chemicals
         </h2>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Protective Card */}
-        <div className="bg-navy rounded-2xl p-8 flex flex-col gap-6 text-white relative overflow-hidden">
+      </FadeIn>
+
+      <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <StaggerItem className="bg-navy rounded-2xl p-8 flex flex-col gap-6 text-white relative overflow-hidden h-full">
           <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
           <div className="flex items-center gap-3 border-b border-white/10 pb-4">
             <span className="material-symbols-outlined text-primary text-3xl">
@@ -56,9 +58,10 @@ const ProtectiveSection: React.FC = () => {
             </span>
             <h3 className="text-xl font-bold">Protective Coatings</h3>
           </div>
-          <div className="grid gap-4">
+
+          <StaggerContainer className="grid gap-4" delay={0.2}>
             {protectiveItems.map((item, idx) => (
-              <div
+              <StaggerItem
                 key={idx}
                 className="flex items-center gap-4 p-3 rounded-lg bg-navy-light/50 hover:bg-navy-light transition-colors group"
               >
@@ -69,13 +72,12 @@ const ProtectiveSection: React.FC = () => {
                   <p className="font-bold">{item.title}</p>
                   <p className="text-xs text-gray-400">{item.desc}</p>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
-        </div>
+          </StaggerContainer>
+        </StaggerItem>
 
-        {/* Chemicals Table */}
-        <div className="bg-white rounded-2xl p-8 border border-gray-200 flex flex-col gap-6 shadow-sm">
+        <StaggerItem className="bg-white rounded-2xl p-8 border border-gray-200 flex flex-col gap-6 shadow-sm h-full">
           <div className="flex items-center gap-3 border-b border-gray-100 pb-4">
             <span className="material-symbols-outlined text-navy text-3xl">
               science
@@ -112,8 +114,8 @@ const ProtectiveSection: React.FC = () => {
           <p className="text-xs text-gray-400 mt-auto">
             *Other solvents available upon request: Thinner, Methanol, etc.
           </p>
-        </div>
-      </div>
+        </StaggerItem>
+      </StaggerContainer>
     </section>
   );
 };
