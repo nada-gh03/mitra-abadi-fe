@@ -23,8 +23,7 @@ const ContactInfo: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <ContactCard icon="location_on" title="Lokasi Kantor & Pabrik">
             <p>
-              Kp. Kebon Baru No.88, RT.001/RW.01, Babat, Kec. Legok, Kabupaten
-              Tangerang, Banten 15820.
+              Kp. Kebon baru no 88, Babat, Legok, Kabupaten Tangerang, Banten.
             </p>
           </ContactCard>
 
@@ -32,16 +31,10 @@ const ContactInfo: React.FC = () => {
             <p className="mb-2">Layanan Pelanggan (09:00 - 17:00)</p>
             <div className="flex flex-col gap-1">
               <a
-                className="text-navy font-medium hover:text-primary transition-colors"
-                href="tel:089526543505"
+                className="text-navy font-medium hover:text-primary transition-colors text-lg"
+                href="tel:6289526543505"
               >
                 0895-2654-3505
-              </a>
-              <a
-                className="text-navy font-medium hover:text-primary transition-colors"
-                href="tel:08129057775"
-              >
-                0812-9057-775
               </a>
             </div>
           </ContactCard>

@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
             >
               <span>Trimitra</span>
               <span className="text-primary">•</span>
-              <span>MASS Chemical</span>
+              <span>PT Mitra Abadi Sinar Selaras</span>
               <span className="text-primary">•</span>
               <span>MASS</span>
             </div>
@@ -122,13 +122,11 @@ const Navbar: React.FC = () => {
                 isMenuOpen ? "rotate-45 translate-y-2 bg-navy" : ""
               }`}
             ></span>
-
             <span
               className={`block w-6 h-0.5 bg-navy rounded-full transition-all duration-300 ease-in-out ${
                 isMenuOpen ? "opacity-0 translate-x-3" : "opacity-100"
               }`}
             ></span>
-
             <span
               className={`block w-6 h-0.5 bg-navy rounded-full transition-all duration-300 ease-in-out ${
                 isMenuOpen ? "-rotate-45 -translate-y-2 bg-navy" : ""
