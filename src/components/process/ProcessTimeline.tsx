@@ -7,15 +7,16 @@ import {
   useTransform,
   useSpring,
   useInView,
+  MotionValue,
 } from "framer-motion";
 
 const STEPS = [
   {
     id: "01",
     number: "01",
-    title: "Analisis Kebutuhan Pelanggan",
+    title: "Analisis Kebutuhan",
     description:
-      "Tahap awal dimulai dengan konsultasi mendalam untuk memahami spesifikasi teknis, lingkungan aplikasi, dan target performa yang diinginkan. Tim teknis kami menerjemahkan kebutuhan bisnis Anda menjadi parameter kimia yang presisi.",
+      "Konsultasi teknis mendalam untuk menerjemahkan kebutuhan bisnis Anda menjadi parameter kimia yang presisi.",
     icon: "assignment",
     imageUrl:
       "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80",
@@ -25,7 +26,7 @@ const STEPS = [
     number: "02",
     title: "R&D dan Formulasi",
     description:
-      "Tim R&D kami meracik formula khusus di laboratorium modern. Pemilihan bahan baku premium dan uji kompatibilitas dilakukan untuk memastikan stabilitas kimia serta daya tahan produk terhadap kondisi ekstrem.",
+      "Peracikan formula khusus di laboratorium modern dengan bahan baku premium dan uji stabilitas ekstrem.",
     icon: "biotech",
     imageUrl:
       "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80",
@@ -35,7 +36,7 @@ const STEPS = [
     number: "03",
     title: "Sample & Pengujian",
     description:
-      "Prototipe dikirimkan kepada Anda untuk validasi lapangan (field test). Kami melakukan iterasi perbaikan berdasarkan feedback hingga sampel 100% sesuai dengan ekspektasi operasional dan standar kualitas.",
+      "Validasi lapangan (field test) melalui prototipe hingga mencapai 100% kesesuaian operasional.",
     icon: "science",
     imageUrl:
       "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80",
@@ -45,7 +46,7 @@ const STEPS = [
     number: "04",
     title: "Produksi Masal",
     description:
-      "Setelah persetujuan sampel, formula dikunci dan masuk ke tahap produksi skala besar. Fasilitas manufaktur kami yang terotomatisasi menjamin konsistensi kualitas batch-to-batch dengan efisiensi tinggi.",
+      "Manufaktur terotomatisasi menjamin konsistensi kualitas batch-to-batch dengan efisiensi tinggi.",
     icon: "precision_manufacturing",
     imageUrl:
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80",
@@ -55,7 +56,7 @@ const STEPS = [
     number: "05",
     title: "Quality Control (QC)",
     description:
-      "Sebelum pengiriman, setiap produk melewati serangkaian uji QC ketat (viskositas, densitas, daya rekat, warna). Kami menerapkan kebijakan 'Zero Defect' untuk menjamin keamanan dan kepuasan Anda.",
+      "Kebijakan 'Zero Defect' melalui uji viskositas, densitas, dan daya rekat sebelum pengiriman.",
     icon: "verified_user",
     imageUrl:
       "https://images.unsplash.com/photo-1581093588401-fbb07365f991?auto=format&fit=crop&q=80",
@@ -63,9 +64,9 @@ const STEPS = [
   {
     id: "06",
     number: "06",
-    title: "Pengiriman & After Sales",
+    title: "Pengiriman & Support",
     description:
-      "Logistik kami memastikan pengiriman tepat waktu dengan handling yang aman. Dukungan purna jual teknis tersedia 24/7 untuk troubleshooting dan konsultasi aplikasi di lapangan.",
+      "Logistik aman dan dukungan teknis 24/7 untuk troubleshooting aplikasi di lapangan.",
     icon: "local_shipping",
     imageUrl:
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80",
@@ -81,14 +82,15 @@ const TimelineItem = ({
 }) => {
   const isEven = index % 2 !== 0;
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-20% 0px -20% 0px" });
+
+  const isInView = useInView(ref, { once: true, margin: "-10% 0px -10% 0px" });
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  const yParallax = useTransform(scrollYProgress, [0, 1], [-30, 30]);
+  const yParallax = useTransform(scrollYProgress, [0, 1], [-20, 20]);
 
   return (
     <div
@@ -97,31 +99,23 @@ const TimelineItem = ({
     >
       <div className="absolute left-6 md:left-1/2 top-0 md:top-8 h-12 w-12 -translate-x-[22px] md:-translate-x-1/2 z-20">
         <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={
-            isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }
-          }
-          transition={{
-            type: "spring",
-            stiffness: 200,
-            damping: 15,
-            delay: 0.2,
-          }}
+          initial={{ scale: 0 }}
+          animate={isInView ? { scale: 1 } : { scale: 0 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className="relative w-full h-full flex items-center justify-center rounded-full bg-navy border-4 border-white shadow-xl"
         >
           <span className="material-symbols-outlined text-primary text-xl font-bold">
             {step.icon}
           </span>
-          <div className="absolute inset-0 rounded-full border-2 border-primary/50 animate-ping opacity-20"></div>
         </motion.div>
       </div>
 
       <motion.div
-        initial={{ opacity: 0, x: isEven ? 50 : -50 }}
+        initial={{ opacity: 0, x: isEven ? 30 : -30 }}
         animate={
-          isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isEven ? 50 : -50 }
+          isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isEven ? 30 : -30 }
         }
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
         className={`pl-16 md:pl-0 ${
           !isEven ? "md:text-right order-2 md:order-1" : "order-2"
         }`}
@@ -146,7 +140,7 @@ const TimelineItem = ({
           animate={
             isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
           }
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.8 }}
           className={`absolute -top-10 md:-top-16 ${
             !isEven ? "-left-6 md:-left-20" : "-right-6 md:-right-20"
           } text-8xl md:text-9xl font-black text-navy/5 font-display select-none z-0`}
@@ -155,18 +149,14 @@ const TimelineItem = ({
         </motion.span>
 
         <motion.div
-          initial={{ clipPath: "inset(10% 10% 10% 10%)", opacity: 0 }}
-          animate={
-            isInView
-              ? { clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }
-              : { clipPath: "inset(10% 10% 10% 10%)", opacity: 0 }
-          }
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className={`relative z-10 h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white group hover:shadow-[0_20px_50px_rgba(0,45,68,0.15)] transition-shadow duration-500`}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative z-10 h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white group"
         >
           <motion.div
             style={{ y: yParallax, scale: 1.1 }}
-            className="w-full h-full bg-cover bg-center"
+            className="w-full h-full bg-cover bg-center will-change-transform"
           >
             <div
               className="w-full h-full bg-cover bg-center"
@@ -195,12 +185,13 @@ const ProcessTimeline: React.FC = () => {
     offset: ["start center", "end center"],
   });
 
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const smoothHeight = useSpring(lineHeight, {
-    stiffness: 60,
-    damping: 20,
+  const smoothHeight = useSpring(scrollYProgress, {
+    stiffness: 200,
+    damping: 30,
     restDelta: 0.001,
   });
+
+  const heightStyle = useTransform(smoothHeight, [0, 1], ["0%", "100%"]);
 
   return (
     <section className="relative w-full overflow-hidden bg-white py-20 md:py-32">
@@ -223,8 +214,8 @@ const ProcessTimeline: React.FC = () => {
         <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-gray-100 md:-translate-x-1/2 h-full z-0" />
 
         <motion.div
-          style={{ height: smoothHeight }}
-          className="absolute left-6 md:left-1/2 top-0 w-[4px] bg-gradient-to-b from-primary via-yellow-300 to-primary shadow-[0_0_20px_rgba(253,184,19,0.6)] md:-translate-x-1/2 z-10 rounded-full origin-top"
+          style={{ height: heightStyle }}
+          className="absolute left-6 md:left-1/2 top-0 w-[4px] bg-gradient-to-b from-primary via-yellow-300 to-primary shadow-[0_0_20px_rgba(253,184,19,0.6)] md:-translate-x-1/2 z-10 rounded-full origin-top will-change-[height]"
         />
 
         <div className="flex flex-col relative z-10 pt-10">
@@ -234,7 +225,7 @@ const ProcessTimeline: React.FC = () => {
         </div>
 
         <motion.div
-          style={{ opacity: useTransform(scrollYProgress, [0.9, 1], [0, 1]) }}
+          style={{ opacity: useTransform(scrollYProgress, [0.95, 1], [0, 1]) }}
           className="absolute bottom-0 left-6 md:left-1/2 w-4 h-4 bg-navy rounded-full md:-translate-x-1/2 translate-y-2 z-20 border-2 border-primary"
         />
       </div>

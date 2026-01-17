@@ -7,6 +7,7 @@ interface FadeInProps {
   direction?: "up" | "down" | "left" | "right";
   className?: string;
   fullWidth?: boolean;
+  style?: React.CSSProperties;
 }
 
 export default function FadeIn({
@@ -15,6 +16,7 @@ export default function FadeIn({
   direction = "up",
   className = "",
   fullWidth = false,
+  style = {},
 }: FadeInProps) {
   const directions = {
     up: { y: 40 },
