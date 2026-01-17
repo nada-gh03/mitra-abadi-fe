@@ -1,51 +1,49 @@
 import React from "react";
+import FadeIn from "./animations/FadeIn";
+import StaggerContainer, { StaggerItem } from "./animations/StaggerContainer";
 
 const Features: React.FC = () => {
   const features = [
     {
       icon: "verified",
-      title: "Kualitas & Inovasi",
-      desc: "Standar tinggi untuk pasar lokal dan global dengan pengujian yang ketat.",
+      title: "Quality Assurance",
+      desc: "Setiap batch melewati uji laboratorium ketat untuk konsistensi warna, viskositas, dan daya tahan.",
+    },
+    {
+      icon: "science",
+      title: "Innovative R&D",
+      desc: "Formulasi kustom yang dikembangkan oleh ahli kimia berpengalaman untuk kebutuhan spesifik industri Anda.",
     },
     {
       icon: "eco",
-      title: "Ramah Lingkungan",
-      desc: "Mendukung praktik bisnis berkelanjutan dan produk rendah VOC.",
-    },
-    {
-      icon: "handshake",
-      title: "Fokus Pelanggan",
-      desc: "Solusi teknis yang disesuaikan dengan kebutuhan spesifik klien kami.",
+      title: "Eco-Conscious",
+      desc: "Komitmen pada keberlanjutan dengan pengembangan produk low-VOC dan pengolahan limbah terstandar.",
     },
   ];
 
   return (
-    <section className="bg-white py-16 border-y border-gray-100">
+    <section className="py-20 bg-white relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+
       <div className="max-w-7xl mx-auto px-4 md:px-10">
-        <div className="flex flex-col items-center mb-12 text-center">
-          <span className="text-primary font-bold uppercase tracking-wider text-sm mb-2">
-            Why Choose Us
-          </span>
-          <h2 className="text-navy text-3xl font-bold">
-            Our Commitment Since 2007
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((f, i) => (
-            <div
+            <StaggerItem
               key={i}
-              className="group flex flex-col items-center text-center p-6 rounded-2xl hover:bg-gray-50 transition-colors"
+              className="group p-8 rounded-2xl bg-white border border-gray-100 hover:border-primary/50 hover:shadow-xl transition-all duration-300"
             >
-              <div className="size-16 rounded-full bg-navy/5 text-navy group-hover:bg-primary group-hover:text-navy flex items-center justify-center mb-6 transition-all duration-300">
+              <div className="size-14 rounded-xl bg-navy/5 text-navy flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-navy transition-colors duration-300">
                 <span className="material-symbols-outlined text-3xl">
                   {f.icon}
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-navy mb-3">{f.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{f.desc}</p>
-            </div>
+              <h3 className="text-xl font-bold text-navy mb-3 font-display">
+                {f.title}
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
