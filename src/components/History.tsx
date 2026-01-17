@@ -28,16 +28,25 @@ const History: React.FC = () => {
             </h2>
             <div className="space-y-4 text-gray-600 text-lg leading-relaxed font-body">
               <p>
-                Kami adalah perusahaan manufaktur pelapis dan kimia terkemuka
-                yang berdedikasi pada inovasi dan kualitas. Berawal dari sebuah
-                laboratorium kecil, kami telah tumbuh menjadi pemimpin industri
-                yang dipercaya oleh berbagai sektor manufaktur di Indonesia.
+                PT Mitra Abadi Group didirikan pada tahun 2006 sebagai
+                perusahaan manufaktur cat dan coating milik swasta Indonesia.
+                Sejak awal berdiri, MASS Chemical berkomitmen untuk menghadirkan
+                produk-produk berkualitas tinggi yang inovatif dan andal untuk
+                memenuhi kebutuhan di berbagai sektor industri.
               </p>
               <p>
-                Komitmen kami tidak hanya pada hasil akhir produk, tetapi pada
-                proses R&D yang berkelanjutan. Setiap formula yang kami ciptakan
-                adalah hasil dari ribuan jam penelitian untuk memastikan
-                ketahanan, efisiensi, dan keamanan lingkungan.
+                Kami memproduksi beragam jenis cat dan pelapis (coating) yang
+                dirancang untuk memberikan perlindungan optimal, daya tahan
+                tinggi, serta performa yang konsisten dalam berbagai kondisi
+                aplikasi. Produk kami dapat menyesuaikan dengan kebutuhan &
+                keinginan konsumen.
+              </p>
+              <p>
+                Berlokasi di Tangerang, Banten – Indonesia, MASS Chemical terus
+                berkembang sebagai mitra terpercaya bagi pelanggan dengan
+                mengedepankan kualitas produk, pengembangan teknologi, serta
+                layanan yang profesional dan berorientasi pada kepuasan
+                pelanggan.
               </p>
             </div>
             <div className="mt-8 flex gap-8 items-center">
@@ -47,7 +56,7 @@ const History: React.FC = () => {
               </div>
               <div className="w-px h-12 bg-gray-300"></div>
               <div className="flex flex-col">
-                <span className="text-3xl font-bold text-navy">500+</span>
+                <span className="text-3xl font-bold text-navy">100+</span>
                 <span className="text-sm text-gray-500">Klien Korporat</span>
               </div>
             </div>

@@ -16,12 +16,12 @@ export default function ProductsPage() {
   return (
     <main className="flex flex-col min-h-screen">
       <ProductHero />
-      <ProductNav />
+      {/* <ProductNav /> */}
 
       <div className="flex flex-col items-center w-full bg-[#f8f7f5] px-4 lg:px-20 py-12 gap-16">
         <IndustrialSection />
         <ProtectiveSection />
-        <RetailSection />
+        {/* <RetailSection /> */}
         <ProductCTA />
       </div>
     </main>
