@@ -1,5 +1,4 @@
 import React from "react";
-import FadeIn from "../animations/FadeIn";
 import StaggerContainer, { StaggerItem } from "../animations/StaggerContainer";
 
 const Features: React.FC = () => {
@@ -22,7 +21,10 @@ const Features: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section
+      id="features"
+      className="py-20 bg-white relative overflow-hidden scroll-mt-20"
+    >
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-10">

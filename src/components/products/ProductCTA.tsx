@@ -1,6 +1,7 @@
 import React from "react";
 import ScaleIn from "../animations/ScaleIn";
 import FadeIn from "../animations/FadeIn";
+import Link from "next/link";
 
 const ProductCTA: React.FC = () => {
   return (
@@ -23,12 +24,14 @@ const ProductCTA: React.FC = () => {
           </FadeIn>
 
           <FadeIn delay={0.7}>
-            <button className="bg-primary hover:bg-yellow-400 text-navy font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center gap-2 cursor-pointer group">
-              <span className="material-symbols-outlined group-hover:rotate-12 transition-transform">
-                forum
-              </span>
-              Konsultasi Dengan Tim Teknis Kami
-            </button>
+            <Link href="/contact">
+              <button className="bg-primary hover:bg-yellow-400 text-navy font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center gap-2 cursor-pointer group">
+                <span className="material-symbols-outlined group-hover:rotate-12 transition-transform">
+                  forum
+                </span>
+                Konsultasi Dengan Tim Teknis Kami
+              </button>
+            </Link>
           </FadeIn>
         </div>
       </ScaleIn>

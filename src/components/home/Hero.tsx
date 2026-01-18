@@ -1,10 +1,20 @@
+"use client";
+
 import React from "react";
+import Link from "next/link";
 import FadeIn from "../animations/FadeIn";
 import ScaleIn from "../animations/ScaleIn";
 import TextReveal from "../animations/TextReveal";
 import CountUp from "../animations/CountUp";
 
 const Hero: React.FC = () => {
+  const scrollToFeatures = () => {
+    const element = document.getElementById("features");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative bg-white overflow-hidden">
       <FadeIn
@@ -52,15 +62,22 @@ const Hero: React.FC = () => {
             </div>
 
             <FadeIn delay={1} className="flex flex-wrap gap-4">
-              <button className="flex items-center justify-center rounded-full h-12 px-8 bg-primary hover:bg-yellow-400 transition-colors text-navy text-base font-bold shadow-lg shadow-yellow-200 cursor-pointer hover:scale-105 active:scale-95 duration-300">
+              <button
+                onClick={scrollToFeatures}
+                className="flex items-center justify-center rounded-full h-12 px-8 bg-primary hover:bg-yellow-400 transition-colors text-navy text-base font-bold shadow-lg shadow-yellow-200 cursor-pointer hover:scale-105 active:scale-95 duration-300"
+              >
                 <span>Discover Our Solutions</span>
                 <span className="material-symbols-outlined ml-2 text-xl">
                   arrow_downward
                 </span>
               </button>
-              <button className="flex items-center justify-center rounded-full h-12 px-8 border-2 border-navy text-navy hover:bg-navy hover:text-white transition-all text-base font-bold cursor-pointer hover:scale-105 active:scale-95 duration-300">
+
+              <Link
+                href="/products"
+                className="flex items-center justify-center rounded-full h-12 px-8 border-2 border-navy text-navy hover:bg-navy hover:text-white transition-all text-base font-bold cursor-pointer hover:scale-105 active:scale-95 duration-300"
+              >
                 <span>View Products</span>
-              </button>
+              </Link>
             </FadeIn>
           </div>
 
