@@ -1,7 +1,8 @@
 import React from "react";
-import FadeIn from "./animations/FadeIn";
-import ScaleIn from "./animations/ScaleIn";
-import TextReveal from "./animations/TextReveal";
+import FadeIn from "../animations/FadeIn";
+import ScaleIn from "../animations/ScaleIn";
+import TextReveal from "../animations/TextReveal";
+import CountUp from "../animations/CountUp";
 
 const Hero: React.FC = () => {
   return (
@@ -90,7 +91,8 @@ const Hero: React.FC = () => {
                 >
                   <div className="bg-white/95 backdrop-blur px-6 py-4 rounded-xl shadow-lg max-w-[200px] border-l-4 border-primary">
                     <p className="text-navy font-bold text-lg leading-none">
-                      17+
+                      <CountUp to={15} duration={2.0} delay={1} />
+                      <span>+</span>
                     </p>
                     <p className="text-gray-600 text-xs mt-1 font-medium">
                       Years of Industrial Excellence

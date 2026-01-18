@@ -2,6 +2,7 @@ import React from "react";
 import FadeIn from "../animations/FadeIn";
 import ScaleIn from "../animations/ScaleIn";
 import StaggerContainer, { StaggerItem } from "../animations/StaggerContainer";
+import CountUp from "../animations/CountUp";
 
 const History: React.FC = () => {
   return (
@@ -71,12 +72,20 @@ const History: React.FC = () => {
               delay={0.4}
             >
               <StaggerItem className="flex flex-col">
-                <span className="text-3xl font-bold text-navy">15+</span>
+                <div className="flex items-baseline text-3xl font-bold text-navy">
+                  <CountUp to={15} duration={2.0} />
+                  <span>+</span>
+                </div>
                 <span className="text-sm text-gray-500">Tahun Pengalaman</span>
               </StaggerItem>
+
               <StaggerItem className="w-px h-12 bg-gray-300"></StaggerItem>
+
               <StaggerItem className="flex flex-col">
-                <span className="text-3xl font-bold text-navy">100+</span>
+                <div className="flex items-baseline text-3xl font-bold text-navy">
+                  <CountUp to={100} duration={2.0} delay={0.2} />
+                  <span>+</span>
+                </div>
                 <span className="text-sm text-gray-500">Klien Korporat</span>
               </StaggerItem>
             </StaggerContainer>

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import FadeIn from "./animations/FadeIn";
-import StaggerContainer, { StaggerItem } from "./animations/StaggerContainer";
+import FadeIn from "../animations/FadeIn";
+import StaggerContainer, { StaggerItem } from "../animations/StaggerContainer";
 
 const Products: React.FC = () => {
   const productCards = [

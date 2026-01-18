@@ -1,6 +1,6 @@
 import React from "react";
-import FadeIn from "./animations/FadeIn";
-import StaggerContainer, { StaggerItem } from "./animations/StaggerContainer";
+import FadeIn from "../animations/FadeIn";
+import StaggerContainer, { StaggerItem } from "../animations/StaggerContainer";
 
 const Features: React.FC = () => {
   const features = [
