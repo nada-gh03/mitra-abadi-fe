@@ -14,10 +14,47 @@ const ContactForm: React.FC = () => {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Pesan Anda telah dikirim! Tim kami akan segera menghubungi Anda.");
+    setIsSubmitting(true);
+
+    const phoneNumber = "6289526543505";
+
+    const textMessage = `
+Halo Mitra Abadi Group,
+Saya ingin berkonsultasi mengenai produk Anda.
+
+Berikut data diri saya:
+------------------------------------------------
+Nama: ${formData.name}
+Perusahaan: ${formData.company || "-"}
+Email: ${formData.email}
+No. HP: ${formData.phone}
+Kategori: ${formData.subject}
+------------------------------------------------
+
+Pesan:
+${formData.message}
+    `.trim();
+
+    const encodedMessage = encodeURIComponent(textMessage);
+
+    const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    setTimeout(() => {
+      window.open(waUrl, "_blank");
+      setIsSubmitting(false);
+      setFormData({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    }, 1000);
   };
 
   const handleInputChange = (
@@ -48,7 +85,7 @@ const ContactForm: React.FC = () => {
             </p>
             <p className="text-[#4a5568] text-base leading-relaxed">
               Isi formulir di samping dan tim ahli kami akan segera menghubungi
-              Anda untuk mendiskusikan kebutuhan teknis Anda.
+              Anda via WhatsApp untuk respon yang lebih cepat.
             </p>
 
             <div className="mt-8 p-6 bg-white rounded-lg border border-gray-100 hidden lg:block shadow-sm">
@@ -203,13 +240,23 @@ const ContactForm: React.FC = () => {
                 </div>
 
                 <button
-                  className="mt-2 w-full cursor-pointer rounded-lg bg-primary px-8 py-4 text-center text-base font-bold text-navy shadow-md transition-all hover:bg-[#e5a00d] hover:shadow-lg active:scale-[0.99] group flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                  className="mt-2 w-full cursor-pointer rounded-lg bg-primary px-8 py-4 text-center text-base font-bold text-navy shadow-md transition-all hover:bg-[#e5a00d] hover:shadow-lg active:scale-[0.99] group flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                   type="submit"
                 >
-                  <span>Kirim Pesan Sekarang</span>
-                  <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
-                    send
-                  </span>
+                  {isSubmitting ? (
+                    <>
+                      <span className="size-5 border-2 border-navy border-t-transparent rounded-full animate-spin"></span>
+                      <span>Mengalihkan ke WhatsApp...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Kirim Pesan Sekarang</span>
+                      <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
+                        send
+                      </span>
+                    </>
+                  )}
                 </button>
               </form>
             </ScaleIn>

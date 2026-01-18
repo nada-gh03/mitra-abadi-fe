@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
                 <div
                   className="w-full h-full bg-cover bg-center"
                   style={{
-                    backgroundImage: `url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80')`,
+                    backgroundImage: `url('/assets/img/main-hero.jpg')`,
                   }}
                 ></div>
 

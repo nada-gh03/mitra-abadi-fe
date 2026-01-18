@@ -6,12 +6,12 @@ const IndustrialSection: React.FC = () => {
   const products = [
     {
       title: "Wood Coatings",
-      img: "https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&q=80",
+      img: "/assets/img/product-wood.png",
       features: ["Sealers & Top Coating", "Stairs Coating", "UV Curing System"],
     },
     {
       title: "Plastic Coatings",
-      img: "https://images.unsplash.com/photo-1621252179027-94459d27d3ee?auto=format&fit=crop&q=80",
+      img: "/assets/img/product-plastic.png",
       features: [
         "Base Coat & Top Coat",
         "Air Dry / UV",
@@ -21,17 +21,17 @@ const IndustrialSection: React.FC = () => {
     },
     {
       title: "Synthetic Rubber",
-      img: "https://images.unsplash.com/photo-1605218427368-35b019b885a1?auto=format&fit=crop&q=80",
+      img: "/assets/img/product-rubber.png",
       features: ["Gloss & Matt for PVC/PU", "Outsole Coating"],
     },
     {
       title: "Metal Coatings",
-      img: "https://images.unsplash.com/photo-1535813547-99c456a4194c?auto=format&fit=crop&q=80",
+      img: "/assets/img/product-metal.png",
       features: ["Zincromate & Anti-Rust", "Cat Seng & Cat Sintetik"],
     },
     {
       title: "Concrete Coatings",
-      img: "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&q=80",
+      img: "/assets/img/product-concrete.png",
       features: [
         "Roof Coating/Waterproofing",
         "Epoxy Flooring",

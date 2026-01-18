@@ -4,9 +4,18 @@ import StaggerContainer, { StaggerItem } from "../animations/StaggerContainer";
 
 const Philosophy: React.FC = () => {
   const companies = [
-    { name: "PT TRIMITRA WARNA ABADI", color: "bg-[#0f172a]" },
-    { name: "PT MITRA ABADI SINAR SELARAS", color: "bg-primary" },
-    { name: "PT MITRA ABADI SELARAS SEJAHTERA", color: "bg-gray-600" },
+    {
+      name: "PT TRIMITRA WARNA ABADI",
+      logo: "/assets/logo/logo.png",
+    },
+    {
+      name: "PT MITRA ABADI SINAR SELARAS",
+      logo: "/assets/logo/mass-logo.png",
+    },
+    {
+      name: "PT MITRA ABADI SELARAS SEJAHTERA",
+      logo: "/assets/logo/selaras-logo.png",
+    },
   ];
 
   return (
@@ -65,10 +74,15 @@ const Philosophy: React.FC = () => {
           {companies.map((company, idx) => (
             <StaggerItem
               key={idx}
-              className="flex items-center gap-3 opacity-80 grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer group"
+              className="flex items-center gap-3 opacity-80 hover:grayscale-0 transition-all duration-300 cursor-pointer group"
             >
               <div
-                className={`size-8 rounded ${company.color} flex-shrink-0 group-hover:scale-110 transition-transform`}
+                className={`size-8 rounded flex-shrink-0 group-hover:scale-110 transition-transform `}
+                style={{
+                  backgroundImage: `url('${company.logo}')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
               ></div>
               <span className="text-navy font-bold text-xs md:text-sm uppercase leading-tight text-left">
                 {company.name}

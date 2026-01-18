@@ -56,7 +56,7 @@ const Workflow: React.FC = () => {
         <div className="relative">
           <FadeIn
             delay={0.2}
-            className="hidden lg:block absolute top-12 left-0 w-full h-1 bg-white/10 rounded-full overflow-hidden"
+            className="hidden lg:block absolute top-9 left-0 w-full h-1 bg-white/10 rounded-full overflow-hidden"
           >
             <div className="h-full w-full bg-gradient-to-r from-primary/20 via-primary to-primary/20 shadow-[0_0_15px_rgba(253,182,18,0.5)] animate-pulse"></div>
           </FadeIn>

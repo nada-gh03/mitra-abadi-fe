@@ -10,8 +10,7 @@ const ContactHero: React.FC = () => {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')",
+            backgroundImage: "url('/assets/img/contact-hero.jpeg')",
           }}
         />
       </ScaleIn>

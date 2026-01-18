@@ -18,8 +18,7 @@ const STEPS = [
     description:
       "Konsultasi teknis mendalam untuk menerjemahkan kebutuhan bisnis Anda menjadi parameter kimia yang presisi.",
     icon: "assignment",
-    imageUrl:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80",
+    imageUrl: "/assets/img/process-1.png",
   },
   {
     id: "02",
@@ -28,8 +27,7 @@ const STEPS = [
     description:
       "Peracikan formula khusus di laboratorium modern dengan bahan baku premium dan uji stabilitas ekstrem.",
     icon: "biotech",
-    imageUrl:
-      "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80",
+    imageUrl: "/assets/img/process-2.png",
   },
   {
     id: "03",
@@ -38,8 +36,7 @@ const STEPS = [
     description:
       "Validasi lapangan (field test) melalui prototipe hingga mencapai 100% kesesuaian operasional.",
     icon: "science",
-    imageUrl:
-      "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80",
+    imageUrl: "/assets/img/process-3.png",
   },
   {
     id: "04",
@@ -48,8 +45,7 @@ const STEPS = [
     description:
       "Manufaktur terotomatisasi menjamin konsistensi kualitas batch-to-batch dengan efisiensi tinggi.",
     icon: "precision_manufacturing",
-    imageUrl:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80",
+    imageUrl: "/assets/img/process-4.png",
   },
   {
     id: "05",
@@ -58,8 +54,7 @@ const STEPS = [
     description:
       "Kebijakan 'Zero Defect' melalui uji viskositas, densitas, dan daya rekat sebelum pengiriman.",
     icon: "verified_user",
-    imageUrl:
-      "https://images.unsplash.com/photo-1581093588401-fbb07365f991?auto=format&fit=crop&q=80",
+    imageUrl: "/assets/img/process-5.webp",
   },
   {
     id: "06",
@@ -68,8 +63,7 @@ const STEPS = [
     description:
       "Logistik aman dan dukungan teknis 24/7 untuk troubleshooting aplikasi di lapangan.",
     icon: "local_shipping",
-    imageUrl:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80",
+    imageUrl: "/assets/img/process-6.avif",
   },
 ];
 

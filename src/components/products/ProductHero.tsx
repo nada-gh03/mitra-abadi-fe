@@ -12,7 +12,7 @@ const ProductHero: React.FC = () => {
           <div
             className="w-full h-full bg-cover bg-center"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80')`,
+              backgroundImage: `url('/assets/img/product-hero.avif')`,
             }}
           ></div>
         </ScaleIn>

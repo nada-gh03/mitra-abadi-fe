@@ -12,8 +12,7 @@ const AboutHero: React.FC = () => {
         <div
           className="w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80')",
+            backgroundImage: "url('/assets/img/about-hero.avif')",
           }}
         ></div>
       </ScaleIn>
