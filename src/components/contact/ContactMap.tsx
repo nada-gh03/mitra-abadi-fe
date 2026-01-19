@@ -2,7 +2,7 @@
 
 import React, { useMemo } from "react";
 import dynamic from "next/dynamic";
-import Image from "next/image"; // Import Image
+import Image from "next/image";
 import ScaleIn from "../animations/ScaleIn";
 
 const ContactMap: React.FC = () => {
@@ -11,13 +11,12 @@ const ContactMap: React.FC = () => {
       dynamic(() => import("./MapWrapper"), {
         loading: () => (
           <div className="w-full h-full bg-gray-100 animate-pulse flex items-center justify-center relative">
-            {/* Placeholder Image Lokal */}
-            <Image
-              src="/assets/img/contact-map.avif" // Pastikan file ini ada!
+            {/* <Image
+              src="/assets/img/contact-map.avif"
               alt="Peta Lokasi Mitra Abadi Group"
               fill
               className="object-cover object-center opacity-50 grayscale"
-            />
+            /> */}
             <p className="text-gray-500 text-sm tracking-widest uppercase relative z-10">
               Loading Map...
             </p>
