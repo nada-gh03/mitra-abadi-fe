@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import FadeIn from "../animations/FadeIn";
 import StaggerContainer, { StaggerItem } from "../animations/StaggerContainer";
 
@@ -6,12 +7,12 @@ const IndustrialSection: React.FC = () => {
   const products = [
     {
       title: "Wood Coatings",
-      img: "/assets/img/product-wood.png",
+      img: "/assets/img/product-wood.avif",
       features: ["Sealers & Top Coating", "Stairs Coating", "UV Curing System"],
     },
     {
       title: "Plastic Coatings",
-      img: "/assets/img/product-plastic.png",
+      img: "/assets/img/product-plastic.avif",
       features: [
         "Base Coat & Top Coat",
         "Air Dry / UV",
@@ -21,17 +22,17 @@ const IndustrialSection: React.FC = () => {
     },
     {
       title: "Synthetic Rubber",
-      img: "/assets/img/product-rubber.png",
+      img: "/assets/img/product-rubber.avif",
       features: ["Gloss & Matt for PVC/PU", "Outsole Coating"],
     },
     {
       title: "Metal Coatings",
-      img: "/assets/img/product-metal.png",
+      img: "/assets/img/product-metal.avif",
       features: ["Zincromate & Anti-Rust", "Cat Seng & Cat Sintetik"],
     },
     {
       title: "Concrete Coatings",
-      img: "/assets/img/product-concrete.png",
+      img: "/assets/img/product-concrete.avif",
       features: [
         "Roof Coating/Waterproofing",
         "Epoxy Flooring",
@@ -60,11 +61,14 @@ const IndustrialSection: React.FC = () => {
             key={idx}
             className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col h-full group"
           >
-            <div className="h-48 w-full overflow-hidden">
-              <div
-                className="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url('${item.img}')` }}
-              ></div>
+            <div className="h-48 w-full overflow-hidden relative">
+              <Image
+                src={item.img}
+                alt={item.title}
+                fill
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             </div>
             <div className="p-6 flex flex-col flex-1">
               <h3 className="text-navy text-lg font-bold mb-3">{item.title}</h3>

@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import {
   motion,
   useScroll,
   useTransform,
   useSpring,
   useInView,
-  MotionValue,
 } from "framer-motion";
 
 const STEPS = [
@@ -18,7 +18,7 @@ const STEPS = [
     description:
       "Konsultasi teknis mendalam untuk menerjemahkan kebutuhan bisnis Anda menjadi parameter kimia yang presisi.",
     icon: "assignment",
-    imageUrl: "/assets/img/process-1.png",
+    imageUrl: "/assets/img/process-1.avif",
   },
   {
     id: "02",
@@ -27,7 +27,7 @@ const STEPS = [
     description:
       "Peracikan formula khusus di laboratorium modern dengan bahan baku premium dan uji stabilitas ekstrem.",
     icon: "biotech",
-    imageUrl: "/assets/img/process-2.png",
+    imageUrl: "/assets/img/process-2.avif",
   },
   {
     id: "03",
@@ -36,7 +36,7 @@ const STEPS = [
     description:
       "Validasi lapangan (field test) melalui prototipe hingga mencapai 100% kesesuaian operasional.",
     icon: "science",
-    imageUrl: "/assets/img/process-3.png",
+    imageUrl: "/assets/img/process-3.avif",
   },
   {
     id: "04",
@@ -45,7 +45,7 @@ const STEPS = [
     description:
       "Manufaktur terotomatisasi menjamin konsistensi kualitas batch-to-batch dengan efisiensi tinggi.",
     icon: "precision_manufacturing",
-    imageUrl: "/assets/img/process-4.png",
+    imageUrl: "/assets/img/process-4.avif",
   },
   {
     id: "05",
@@ -54,7 +54,7 @@ const STEPS = [
     description:
       "Kebijakan 'Zero Defect' melalui uji viskositas, densitas, dan daya rekat sebelum pengiriman.",
     icon: "verified_user",
-    imageUrl: "/assets/img/process-5.webp",
+    imageUrl: "/assets/img/process-5.avif",
   },
   {
     id: "06",
@@ -148,22 +148,26 @@ const TimelineItem = ({
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative z-10 h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white group"
         >
+          {/* Parallax Wrapper */}
           <motion.div
             style={{ y: yParallax, scale: 1.1 }}
-            className="w-full h-full bg-cover bg-center will-change-transform"
+            className="w-full h-full relative will-change-transform"
           >
-            <div
-              className="w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: `url('${step.imageUrl}')` }}
+            <Image
+              src={step.imageUrl}
+              alt={step.title}
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </motion.div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
 
           <div
             className={`absolute bottom-0 ${
               !isEven ? "left-0" : "right-0"
-            } w-1/3 h-1.5 bg-primary group-hover:w-full transition-all duration-700`}
+            } w-1/3 h-1.5 bg-primary group-hover:w-full transition-all duration-700 z-20`}
           />
         </motion.div>
       </div>

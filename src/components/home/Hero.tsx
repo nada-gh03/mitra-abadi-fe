@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import FadeIn from "../animations/FadeIn";
 import ScaleIn from "../animations/ScaleIn";
 import TextReveal from "../animations/TextReveal";
@@ -93,13 +94,14 @@ const Hero: React.FC = () => {
 
             <ScaleIn delay={0.2} className="relative w-full h-full">
               <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform rotate-2 hover:rotate-0 transition-transform duration-700">
-                <div className="absolute inset-0 bg-gradient-to-tr from-navy/40 to-transparent z-10 mix-blend-multiply"></div>
-                <div
-                  className="w-full h-full bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url('/assets/img/main-hero.jpg')`,
-                  }}
-                ></div>
+                <Image
+                  src="/assets/img/main-hero.avif"
+                  alt="Pabrik Cat Mitra Abadi Group"
+                  fill
+                  priority={true}
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
 
                 <FadeIn
                   delay={1.2}

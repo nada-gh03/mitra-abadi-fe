@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import ScaleIn from "../animations/ScaleIn";
 import TextReveal from "../animations/TextReveal";
 import FadeIn from "../animations/FadeIn";
@@ -9,12 +10,14 @@ const ProcessHero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[#002D44]/60 z-10 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-[#002D44]/40 z-10"></div>
-        <ScaleIn className="w-full h-full">
-          <div
-            className="h-full w-full bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: `url('/assets/img/process-hero.png')`,
-            }}
+        <ScaleIn className="w-full h-full relative">
+          <Image
+            src="/assets/img/process-hero.avif"
+            alt="Proses Produksi Cat & Kimia Standar Industri"
+            fill
+            priority={true}
+            className="object-cover object-center"
+            sizes="100vw"
           />
         </ScaleIn>
       </div>

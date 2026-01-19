@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import ScaleIn from "../animations/ScaleIn";
 import TextReveal from "../animations/TextReveal";
 import FadeIn from "../animations/FadeIn";
@@ -9,12 +10,14 @@ const AboutHero: React.FC = () => {
     <section className="relative w-full h-[320px] bg-navy overflow-hidden flex items-center justify-center">
       <ScaleIn className="absolute inset-0 z-0 w-full h-full">
         <div className="absolute inset-0 bg-navy/70 z-10"></div>
-        <div
-          className="w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/assets/img/about-hero.avif')",
-          }}
-        ></div>
+        <Image
+          src="/assets/img/about-hero.avif"
+          alt="Tentang Mitra Abadi Group - Pabrik Cat & Kimia"
+          fill
+          priority={true}
+          className="object-cover object-center"
+          sizes="100vw"
+        />
       </ScaleIn>
 
       <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto">

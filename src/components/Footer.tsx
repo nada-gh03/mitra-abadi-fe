@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
 
             <p className="text-white/60 text-sm leading-relaxed mb-6 font-body">
               Leading the industry in protective coatings, chemicals, and
-              sustainable manufacturing solutions since 2007.
+              sustainable manufacturing solutions since 2006.
             </p>
 
             <div className="flex gap-4">

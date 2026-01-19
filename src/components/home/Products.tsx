@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import FadeIn from "../animations/FadeIn";
 import StaggerContainer, { StaggerItem } from "../animations/StaggerContainer";
 
@@ -8,21 +9,21 @@ const Products: React.FC = () => {
     {
       title: "Industrial & Protective Coatings",
       desc: "Wood, Plastic, Metal, Concrete & Rubber Solutions tailored for durability.",
-      img: "/assets/img/home-product-coating.png",
+      img: "/assets/img/home-product-coating.avif",
       href: "/products#industrial",
       isExternal: false,
     },
     {
       title: "Chemicals & Solvents",
       desc: "High-purity CYC, MC, Thinners, and more for demanding industrial use.",
-      img: "/assets/img/home-product-chem.png",
+      img: "/assets/img/home-product-chem.avif",
       href: "/products#protective",
       isExternal: false,
     },
     {
       title: "Retail Paint & Safety Gear",
       desc: "Featuring our trusted Catalya wall paint and durable Cataboost safety boots.",
-      img: "/assets/img/home-product-gear.png",
+      img: "/assets/img/home-product-gear.avif",
       href: "https://catapaint.com",
       isExternal: true,
     },
@@ -68,15 +69,18 @@ const Products: React.FC = () => {
                   {...props}
                   className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-primary flex flex-col cursor-pointer h-full"
                 >
-                  <div className="h-64 w-full bg-cover bg-center overflow-hidden relative">
-                    <div
-                      className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                      style={{ backgroundImage: `url('${p.img}')` }}
-                    ></div>
-                    <div className="absolute inset-0 bg-navy/20 group-hover:bg-navy/0 transition-colors duration-500"></div>
+                  <div className="h-64 w-full relative overflow-hidden">
+                    <Image
+                      src={p.img}
+                      alt={p.title}
+                      fill
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-navy/20 group-hover:bg-navy/0 transition-colors duration-500 z-10"></div>
                   </div>
 
-                  <div className="p-8 flex flex-col h-full relative">
+                  <div className="p-8 flex flex-col h-full relative z-20">
                     <div className="absolute -top-6 right-8 size-12 bg-primary text-navy rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                       <span className="material-symbols-outlined">
                         arrow_outward

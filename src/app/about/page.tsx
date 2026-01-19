@@ -8,7 +8,7 @@ import CTA from "@/components/CTA";
 export const metadata: Metadata = {
   title: "About Us | Mitra Abadi Group",
   description:
-    "Pelajari sejarah, visi, misi, dan filosofi Mitra Abadi Group dalam memberikan solusi kimia industri terbaik sejak 2007.",
+    "Pelajari sejarah, visi, misi, dan filosofi Mitra Abadi Group dalam memberikan solusi kimia industri terbaik sejak 2006.",
 };
 
 export default function AboutPage() {
