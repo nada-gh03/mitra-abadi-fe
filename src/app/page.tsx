@@ -1,7 +1,7 @@
-import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import Products from "@/components/Products";
-import Workflow from "@/components/Workflow";
+import Hero from "@/components/home/Hero";
+import Features from "@/components/home/Features";
+import Products from "@/components/home/Products";
+import Workflow from "@/components/home/Workflow";
 
 export default function Home() {
   return (

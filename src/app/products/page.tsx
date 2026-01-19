@@ -1,8 +1,8 @@
-import IndustrialSection from "@/components/IndustrialSection";
-import ProductCTA from "@/components/ProductCTA";
-import ProductHero from "@/components/ProductHero";
+import IndustrialSection from "@/components/products/IndustrialSection";
+import ProductCTA from "@/components/products/ProductCTA";
+import ProductHero from "@/components/products/ProductHero";
 import ProductNav from "@/components/ProductNav";
-import ProtectiveSection from "@/components/ProtectiveSection";
+import ProtectiveSection from "@/components/products/ProtectiveSection";
 import RetailSection from "@/components/RetailSection";
 import type { Metadata } from "next";
 

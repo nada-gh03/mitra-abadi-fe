@@ -1,150 +1,227 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  useInView,
+  MotionValue,
+} from "framer-motion";
 
 const STEPS = [
   {
     id: "01",
     number: "01",
-    title: "Analisis Kebutuhan Pelanggan",
+    title: "Analisis Kebutuhan",
     description:
-      "Tahap awal dimulai dengan konsultasi mendalam untuk memahami spesifikasi teknis, lingkungan aplikasi, dan target performa yang diinginkan. Tim teknis kami menerjemahkan kebutuhan bisnis Anda menjadi parameter kimia yang presisi.",
+      "Konsultasi teknis mendalam untuk menerjemahkan kebutuhan bisnis Anda menjadi parameter kimia yang presisi.",
     icon: "assignment",
-    imageUrl:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80",
+    imageUrl: "/assets/img/process-1.png",
   },
   {
     id: "02",
     number: "02",
     title: "R&D dan Formulasi",
     description:
-      "Tim R&D kami meracik formula khusus di laboratorium modern. Pemilihan bahan baku premium dan uji kompatibilitas dilakukan untuk memastikan stabilitas kimia serta daya tahan produk terhadap kondisi ekstrem.",
+      "Peracikan formula khusus di laboratorium modern dengan bahan baku premium dan uji stabilitas ekstrem.",
     icon: "biotech",
-    imageUrl:
-      "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80",
+    imageUrl: "/assets/img/process-2.png",
   },
   {
     id: "03",
     number: "03",
     title: "Sample & Pengujian",
     description:
-      "Prototipe dikirimkan kepada Anda untuk validasi lapangan (field test). Kami melakukan iterasi perbaikan berdasarkan feedback hingga sampel 100% sesuai dengan ekspektasi operasional dan standar kualitas.",
+      "Validasi lapangan (field test) melalui prototipe hingga mencapai 100% kesesuaian operasional.",
     icon: "science",
-    imageUrl:
-      "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80",
+    imageUrl: "/assets/img/process-3.png",
   },
   {
     id: "04",
     number: "04",
     title: "Produksi Masal",
     description:
-      "Setelah persetujuan sampel, formula dikunci dan masuk ke tahap produksi skala besar. Fasilitas manufaktur kami yang terotomatisasi menjamin konsistensi kualitas batch-to-batch dengan efisiensi tinggi.",
+      "Manufaktur terotomatisasi menjamin konsistensi kualitas batch-to-batch dengan efisiensi tinggi.",
     icon: "precision_manufacturing",
-    imageUrl:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80",
+    imageUrl: "/assets/img/process-4.png",
   },
   {
     id: "05",
     number: "05",
     title: "Quality Control (QC)",
     description:
-      "Sebelum pengiriman, setiap produk melewati serangkaian uji QC ketat (viskositas, densitas, daya rekat, warna). Kami menerapkan kebijakan 'Zero Defect' untuk menjamin keamanan dan kepuasan Anda.",
+      "Kebijakan 'Zero Defect' melalui uji viskositas, densitas, dan daya rekat sebelum pengiriman.",
     icon: "verified_user",
-    imageUrl:
-      "https://images.unsplash.com/photo-1581093588401-fbb07365f991?auto=format&fit=crop&q=80",
+    imageUrl: "/assets/img/process-5.webp",
   },
   {
     id: "06",
     number: "06",
-    title: "Pengiriman & After Sales",
+    title: "Pengiriman & Support",
     description:
-      "Logistik kami memastikan pengiriman tepat waktu dengan handling yang aman. Dukungan purna jual teknis tersedia 24/7 untuk troubleshooting dan konsultasi aplikasi di lapangan.",
+      "Logistik aman dan dukungan teknis 24/7 untuk troubleshooting aplikasi di lapangan.",
     icon: "local_shipping",
-    imageUrl:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80",
+    imageUrl: "/assets/img/process-6.avif",
   },
 ];
 
-const ProcessTimeline: React.FC = () => {
+const TimelineItem = ({
+  step,
+  index,
+}: {
+  step: (typeof STEPS)[0];
+  index: number;
+}) => {
+  const isEven = index % 2 !== 0;
+  const ref = useRef(null);
+
+  const isInView = useInView(ref, { once: true, margin: "-10% 0px -10% 0px" });
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const yParallax = useTransform(scrollYProgress, [0, 1], [-20, 20]);
+
   return (
-    <section className="relative w-full overflow-hidden bg-white py-12 md:py-24">
-      <div className="mx-auto max-w-4xl text-center mb-20 px-6">
-        <p className="text-navy text-xl md:text-2xl font-normal leading-relaxed border-l-4 border-primary pl-6 text-left md:text-center md:pl-0 md:border-l-0 md:border-b-4 md:pb-6 md:inline-block italic">
-          "Di Mitra Abadi Group, setiap solusi kimia yang kami hasilkan melewati
-          siklus pengembangan yang ketat. Kami memastikan setiap tetes cat dan
-          bahan kimia memenuhi standar industri internasional."
-        </p>
+    <div
+      ref={ref}
+      className={`relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-center mb-24 md:mb-32 last:mb-0`}
+    >
+      <div className="absolute left-6 md:left-1/2 top-0 md:top-8 h-12 w-12 -translate-x-[22px] md:-translate-x-1/2 z-20">
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={isInView ? { scale: 1 } : { scale: 0 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          className="relative w-full h-full flex items-center justify-center rounded-full bg-navy border-4 border-white shadow-xl"
+        >
+          <span className="material-symbols-outlined text-primary text-xl font-bold">
+            {step.icon}
+          </span>
+        </motion.div>
       </div>
 
-      <div className="mx-auto max-w-[1100px] px-6 relative">
-        <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[4px] bg-gray-100 md:-translate-x-1/2 h-full z-0" />
-        <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[4px] bg-primary shadow-[0_0_15px_rgba(253,184,19,0.5)] md:-translate-x-1/2 h-full z-0" />
-
-        <div className="flex flex-col gap-24 relative z-10">
-          {STEPS.map((step, idx) => {
-            const isEven = idx % 2 !== 0;
-            return (
-              <div
-                key={step.id}
-                className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-center group"
-              >
-                <div className="absolute left-6 md:left-1/2 top-0 h-10 w-10 -translate-x-[18px] md:-translate-x-1/2 rounded-full border-4 border-white bg-navy text-primary flex items-center justify-center shadow-lg z-10 transition-transform group-hover:scale-110">
-                  <span className="material-symbols-outlined text-sm font-bold">
-                    {step.icon}
-                  </span>
-                </div>
-
-                <div
-                  className={`pl-16 md:pl-0 ${
-                    !isEven ? "md:text-right order-2 md:order-1" : "order-2"
-                  }`}
-                >
-                  <div
-                    className={`flex flex-col gap-3 ${
-                      !isEven ? "md:items-end" : ""
-                    }`}
-                  >
-                    <h3 className="text-2xl font-bold text-navy font-display">
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  className={`pl-16 md:pl-0 relative ${
-                    !isEven ? "order-1 md:order-2" : "order-1"
-                  }`}
-                >
-                  <span
-                    className={`absolute -top-10 ${
-                      !isEven ? "-left-6 md:-left-12" : "-right-6 md:-right-12"
-                    } text-8xl font-bold text-navy/10 font-display select-none z-0`}
-                  >
-                    {step.number}
-                  </span>
-                  <div
-                    className={`relative z-10 h-64 w-full rounded-none border-2 border-navy overflow-hidden shadow-xl bg-white transition-transform duration-500 ${
-                      !isEven
-                        ? "group-hover:translate-x-2"
-                        : "group-hover:-translate-x-2"
-                    }`}
-                  >
-                    <div
-                      className="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                      style={{ backgroundImage: `url('${step.imageUrl}')` }}
-                    />
-                    <div
-                      className={`absolute bottom-0 ${
-                        !isEven ? "left-0" : "right-0"
-                      } w-16 h-1 bg-primary`}
-                    />
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+      <motion.div
+        initial={{ opacity: 0, x: isEven ? 30 : -30 }}
+        animate={
+          isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isEven ? 30 : -30 }
+        }
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        className={`pl-16 md:pl-0 ${
+          !isEven ? "md:text-right order-2 md:order-1" : "order-2"
+        }`}
+      >
+        <div className={`flex flex-col gap-3 ${!isEven ? "md:items-end" : ""}`}>
+          <h3 className="text-2xl lg:text-3xl font-bold text-navy font-display">
+            {step.title}
+          </h3>
+          <p className="text-gray-600 leading-relaxed text-sm md:text-base font-body">
+            {step.description}
+          </p>
         </div>
+      </motion.div>
+
+      <div
+        className={`pl-16 md:pl-0 relative ${
+          !isEven ? "order-1 md:order-2" : "order-1"
+        }`}
+      >
+        <motion.span
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={
+            isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
+          }
+          transition={{ duration: 0.8 }}
+          className={`absolute -top-10 md:-top-16 ${
+            !isEven ? "-left-6 md:-left-20" : "-right-6 md:-right-20"
+          } text-8xl md:text-9xl font-black text-navy/5 font-display select-none z-0`}
+        >
+          {step.number}
+        </motion.span>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative z-10 h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white group"
+        >
+          <motion.div
+            style={{ y: yParallax, scale: 1.1 }}
+            className="w-full h-full bg-cover bg-center will-change-transform"
+          >
+            <div
+              className="w-full h-full bg-cover bg-center"
+              style={{ backgroundImage: `url('${step.imageUrl}')` }}
+            />
+          </motion.div>
+
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+          <div
+            className={`absolute bottom-0 ${
+              !isEven ? "left-0" : "right-0"
+            } w-1/3 h-1.5 bg-primary group-hover:w-full transition-all duration-700`}
+          />
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+const ProcessTimeline: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"],
+  });
+
+  const smoothHeight = useSpring(scrollYProgress, {
+    stiffness: 200,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  const heightStyle = useTransform(smoothHeight, [0, 1], ["0%", "100%"]);
+
+  return (
+    <section className="relative w-full overflow-hidden bg-white py-20 md:py-32">
+      <div className="mx-auto max-w-4xl text-center mb-24 px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <p className="text-navy text-xl md:text-2xl font-normal leading-relaxed border-l-4 border-primary pl-6 text-left md:text-center md:pl-0 md:border-l-0 md:border-b-4 md:pb-6 md:inline-block italic">
+            "Di Mitra Abadi Group, setiap solusi kimia yang kami hasilkan
+            melewati siklus pengembangan yang ketat. Kami memastikan setiap
+            tetes cat dan bahan kimia memenuhi standar industri internasional."
+          </p>
+        </motion.div>
+      </div>
+
+      <div ref={containerRef} className="mx-auto max-w-[1200px] px-6 relative">
+        <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-gray-100 md:-translate-x-1/2 h-full z-0" />
+
+        <motion.div
+          style={{ height: heightStyle }}
+          className="absolute left-6 md:left-1/2 top-0 w-[4px] bg-gradient-to-b from-primary via-yellow-300 to-primary shadow-[0_0_20px_rgba(253,184,19,0.6)] md:-translate-x-1/2 z-10 rounded-full origin-top will-change-[height]"
+        />
+
+        <div className="flex flex-col relative z-10 pt-10">
+          {STEPS.map((step, idx) => (
+            <TimelineItem key={step.id} step={step} index={idx} />
+          ))}
+        </div>
+
+        <motion.div
+          style={{ opacity: useTransform(scrollYProgress, [0.95, 1], [0, 1]) }}
+          className="absolute bottom-0 left-6 md:left-1/2 w-4 h-4 bg-navy rounded-full md:-translate-x-1/2 translate-y-2 z-20 border-2 border-primary"
+        />
       </div>
     </section>
   );

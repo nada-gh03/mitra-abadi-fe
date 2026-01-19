@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import FadeIn from "../animations/FadeIn";
+import ScaleIn from "../animations/ScaleIn";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -12,10 +14,47 @@ const ContactForm: React.FC = () => {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Pesan Anda telah dikirim! Tim kami akan segera menghubungi Anda.");
+    setIsSubmitting(true);
+
+    const phoneNumber = "6289526543505";
+
+    const textMessage = `
+Halo Mitra Abadi Group,
+Saya ingin berkonsultasi mengenai produk Anda.
+
+Berikut data diri saya:
+------------------------------------------------
+Nama: ${formData.name}
+Perusahaan: ${formData.company || "-"}
+Email: ${formData.email}
+No. HP: ${formData.phone}
+Kategori: ${formData.subject}
+------------------------------------------------
+
+Pesan:
+${formData.message}
+    `.trim();
+
+    const encodedMessage = encodeURIComponent(textMessage);
+
+    const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    setTimeout(() => {
+      window.open(waUrl, "_blank");
+      setIsSubmitting(false);
+      setFormData({
+        name: "",
+        company: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+    }, 1000);
   };
 
   const handleInputChange = (
@@ -28,10 +67,13 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section className="py-16 px-6 lg:px-10 flex justify-center bg-[#f8f7f5]">
+    <section className="py-16 px-6 lg:px-10 flex justify-center bg-[#f8f7f5] overflow-hidden">
       <div className="w-full max-w-[1280px]">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
-          <div className="lg:w-1/3 flex flex-col gap-6 pt-4">
+          <FadeIn
+            direction="right"
+            className="lg:w-1/3 flex flex-col gap-6 pt-4"
+          >
             <div className="w-12 h-1 bg-primary mb-2"></div>
             <h2 className="text-navy text-3xl md:text-4xl font-bold leading-tight">
               Kirim Pesan atau Permintaan Sampel
@@ -43,7 +85,7 @@ const ContactForm: React.FC = () => {
             </p>
             <p className="text-[#4a5568] text-base leading-relaxed">
               Isi formulir di samping dan tim ahli kami akan segera menghubungi
-              Anda untuk mendiskusikan kebutuhan teknis Anda.
+              Anda via WhatsApp untuk respon yang lebih cepat.
             </p>
 
             <div className="mt-8 p-6 bg-white rounded-lg border border-gray-100 hidden lg:block shadow-sm">
@@ -68,10 +110,13 @@ const ContactForm: React.FC = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </FadeIn>
 
           <div className="lg:w-2/3">
-            <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 border border-gray-100">
+            <ScaleIn
+              delay={0.2}
+              className="bg-white rounded-xl shadow-lg p-6 md:p-8 border border-gray-100 hover:shadow-2xl transition-shadow duration-500"
+            >
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
@@ -131,7 +176,7 @@ const ContactForm: React.FC = () => {
                       className="text-sm font-bold text-navy"
                       htmlFor="phone"
                     >
-                      Nomor Telepon / WhatsApp
+                      Nomor Telepon
                     </label>
                     <input
                       className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-base text-navy placeholder:text-gray-400 focus:border-navy focus:ring-1 focus:ring-navy outline-none transition-all"
@@ -144,6 +189,7 @@ const ContactForm: React.FC = () => {
                     />
                   </div>
                 </div>
+
                 <div className="flex flex-col gap-2">
                   <label
                     className="text-sm font-bold text-navy"
@@ -174,6 +220,7 @@ const ContactForm: React.FC = () => {
                     </div>
                   </div>
                 </div>
+
                 <div className="flex flex-col gap-2">
                   <label
                     className="text-sm font-bold text-navy"
@@ -191,14 +238,28 @@ const ContactForm: React.FC = () => {
                     required
                   ></textarea>
                 </div>
+
                 <button
-                  className="mt-2 w-full cursor-pointer rounded-lg bg-primary px-8 py-4 text-center text-base font-bold text-navy shadow-md transition-all hover:bg-[#e5a00d] hover:shadow-lg active:scale-[0.99]"
+                  disabled={isSubmitting}
+                  className="mt-2 w-full cursor-pointer rounded-lg bg-primary px-8 py-4 text-center text-base font-bold text-navy shadow-md transition-all hover:bg-[#e5a00d] hover:shadow-lg active:scale-[0.99] group flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                   type="submit"
                 >
-                  Kirim Pesan Sekarang
+                  {isSubmitting ? (
+                    <>
+                      <span className="size-5 border-2 border-navy border-t-transparent rounded-full animate-spin"></span>
+                      <span>Mengalihkan ke WhatsApp...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Kirim Pesan Sekarang</span>
+                      <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
+                        send
+                      </span>
+                    </>
+                  )}
                 </button>
               </form>
-            </div>
+            </ScaleIn>
           </div>
         </div>
       </div>

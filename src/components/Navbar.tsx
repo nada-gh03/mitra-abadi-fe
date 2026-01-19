@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const Navbar: React.FC = () => {
@@ -51,21 +52,19 @@ const Navbar: React.FC = () => {
           className="flex items-center gap-4 text-navy group z-50 relative"
         >
           <div
-            className={`text-primary group-hover:scale-110 transition-all duration-300 ${
-              isScrolled ? "size-7" : "size-9"
+            className={`relative transition-all duration-300 group-hover:scale-105 ${
+              isScrolled ? "w-10 h-10" : "w-12 h-12"
             }`}
           >
-            <svg
-              fill="none"
-              viewBox="0 0 48 48"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z"
-                fill="currentColor"
-              ></path>
-            </svg>
+            <Image
+              src="/assets/logo/logo.png"
+              alt="Mitra Abadi Group Logo"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
+
           <div className="flex flex-col">
             <h2
               className={`text-navy font-bold leading-tight tracking-tight transition-all duration-300 ${
@@ -119,7 +118,7 @@ const Navbar: React.FC = () => {
           >
             <span
               className={`block w-6 h-0.5 bg-navy rounded-full transition-all duration-300 ease-in-out ${
-                isMenuOpen ? "rotate-45 translate-y-2 bg-navy" : ""
+                isMenuOpen ? "rotate-45 translate-y-2 bg-primary" : ""
               }`}
             ></span>
             <span
@@ -129,7 +128,7 @@ const Navbar: React.FC = () => {
             ></span>
             <span
               className={`block w-6 h-0.5 bg-navy rounded-full transition-all duration-300 ease-in-out ${
-                isMenuOpen ? "-rotate-45 -translate-y-2 bg-navy" : ""
+                isMenuOpen ? "-rotate-45 -translate-y-2 bg-primary" : ""
               }`}
             ></span>
           </button>
