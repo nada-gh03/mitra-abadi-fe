@@ -18,7 +18,7 @@ const STEPS = [
     description:
       "Konsultasi teknis mendalam untuk menerjemahkan kebutuhan bisnis Anda menjadi parameter kimia yang presisi.",
     icon: "assignment",
-    imageUrl: "/assets/img/process-1.png",
+    imageUrl: "/assets/img/process-1.avif",
   },
   {
     id: "02",
@@ -27,7 +27,7 @@ const STEPS = [
     description:
       "Peracikan formula khusus di laboratorium modern dengan bahan baku premium dan uji stabilitas ekstrem.",
     icon: "biotech",
-    imageUrl: "/assets/img/process-2.png",
+    imageUrl: "/assets/img/process-2.avif",
   },
   {
     id: "03",
@@ -36,7 +36,7 @@ const STEPS = [
     description:
       "Validasi lapangan (field test) melalui prototipe hingga mencapai 100% kesesuaian operasional.",
     icon: "science",
-    imageUrl: "/assets/img/process-3.png",
+    imageUrl: "/assets/img/process-3.avif",
   },
   {
     id: "04",
@@ -45,7 +45,7 @@ const STEPS = [
     description:
       "Manufaktur terotomatisasi menjamin konsistensi kualitas batch-to-batch dengan efisiensi tinggi.",
     icon: "precision_manufacturing",
-    imageUrl: "/assets/img/process-4.png",
+    imageUrl: "/assets/img/process-4.avif",
   },
   {
     id: "05",
@@ -54,7 +54,7 @@ const STEPS = [
     description:
       "Kebijakan 'Zero Defect' melalui uji viskositas, densitas, dan daya rekat sebelum pengiriman.",
     icon: "verified_user",
-    imageUrl: "/assets/img/process-5.webp",
+    imageUrl: "/assets/img/process-5.avif",
   },
   {
     id: "06",

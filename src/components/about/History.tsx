@@ -17,7 +17,7 @@ const History: React.FC = () => {
             <div
               className="w-full aspect-[4/3] bg-cover bg-center transform transition-transform duration-700 hover:scale-105"
               style={{
-                backgroundImage: "url('/assets/img/about-history.JPG')",
+                backgroundImage: "url('/assets/img/about-history.avif')",
               }}
             ></div>
           </ScaleIn>

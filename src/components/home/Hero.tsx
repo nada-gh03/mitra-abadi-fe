@@ -97,7 +97,7 @@ const Hero: React.FC = () => {
                 <div
                   className="w-full h-full bg-cover bg-center"
                   style={{
-                    backgroundImage: `url('/assets/img/main-hero.jpg')`,
+                    backgroundImage: `url('/assets/img/main-hero.avif')`,
                   }}
                 ></div>
 

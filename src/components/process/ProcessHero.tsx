@@ -13,7 +13,7 @@ const ProcessHero: React.FC = () => {
           <div
             className="h-full w-full bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url('/assets/img/process-hero.png')`,
+              backgroundImage: `url('/assets/img/process-hero.avif')`,
             }}
           />
         </ScaleIn>

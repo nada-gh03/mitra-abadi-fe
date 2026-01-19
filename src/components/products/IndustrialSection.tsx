@@ -6,12 +6,12 @@ const IndustrialSection: React.FC = () => {
   const products = [
     {
       title: "Wood Coatings",
-      img: "/assets/img/product-wood.png",
+      img: "/assets/img/product-wood.avif",
       features: ["Sealers & Top Coating", "Stairs Coating", "UV Curing System"],
     },
     {
       title: "Plastic Coatings",
-      img: "/assets/img/product-plastic.png",
+      img: "/assets/img/product-plastic.avif",
       features: [
         "Base Coat & Top Coat",
         "Air Dry / UV",
@@ -21,17 +21,17 @@ const IndustrialSection: React.FC = () => {
     },
     {
       title: "Synthetic Rubber",
-      img: "/assets/img/product-rubber.png",
+      img: "/assets/img/product-rubber.avif",
       features: ["Gloss & Matt for PVC/PU", "Outsole Coating"],
     },
     {
       title: "Metal Coatings",
-      img: "/assets/img/product-metal.png",
+      img: "/assets/img/product-metal.avif",
       features: ["Zincromate & Anti-Rust", "Cat Seng & Cat Sintetik"],
     },
     {
       title: "Concrete Coatings",
-      img: "/assets/img/product-concrete.png",
+      img: "/assets/img/product-concrete.avif",
       features: [
         "Roof Coating/Waterproofing",
         "Epoxy Flooring",

@@ -10,7 +10,7 @@ const ContactHero: React.FC = () => {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: "url('/assets/img/contact-hero.jpeg')",
+            backgroundImage: "url('/assets/img/contact-hero.avif')",
           }}
         />
       </ScaleIn>
