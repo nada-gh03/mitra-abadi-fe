@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import FadeIn from "../animations/FadeIn";
 import StaggerContainer, { StaggerItem } from "../animations/StaggerContainer";
 
@@ -60,11 +61,14 @@ const IndustrialSection: React.FC = () => {
             key={idx}
             className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col h-full group"
           >
-            <div className="h-48 w-full overflow-hidden">
-              <div
-                className="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url('${item.img}')` }}
-              ></div>
+            <div className="h-48 w-full overflow-hidden relative">
+              <Image
+                src={item.img}
+                alt={item.title}
+                fill
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             </div>
             <div className="p-6 flex flex-col flex-1">
               <h3 className="text-navy text-lg font-bold mb-3">{item.title}</h3>

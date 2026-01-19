@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import FadeIn from "../animations/FadeIn";
 import ScaleIn from "../animations/ScaleIn";
 import StaggerContainer, { StaggerItem } from "../animations/StaggerContainer";
@@ -14,12 +15,15 @@ const History: React.FC = () => {
             className="absolute -top-4 -left-4 w-full h-full border-2 border-primary rounded-[2rem] z-0 hidden lg:block"
           />
           <ScaleIn className="relative z-10 rounded-[2rem] overflow-hidden shadow-2xl">
-            <div
-              className="w-full aspect-[4/3] bg-cover bg-center transform transition-transform duration-700 hover:scale-105"
-              style={{
-                backgroundImage: "url('/assets/img/about-history.avif')",
-              }}
-            ></div>
+            <div className="w-full aspect-[4/3] relative">
+              <Image
+                src="/assets/img/about-history.avif"
+                alt="Sejarah Mitra Abadi Group"
+                fill
+                className="object-cover object-center transform transition-transform duration-700 hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
           </ScaleIn>
         </div>
 
@@ -28,14 +32,14 @@ const History: React.FC = () => {
             direction="down"
             className="absolute -top-20 -right-10 lg:-right-20 text-[180px] font-black text-primary/10 select-none z-0 pointer-events-none leading-none"
           >
-            2007
+            2006
           </FadeIn>
 
           <div className="relative z-10">
             <FadeIn>
               <h2 className="text-navy text-3xl md:text-4xl font-bold leading-tight mb-6">
                 Membangun Kepercayaan <br />
-                <span className="text-primary">Sejak 2007</span>
+                <span className="text-primary">Sejak 2006</span>
               </h2>
             </FadeIn>
 

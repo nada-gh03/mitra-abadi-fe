@@ -20,7 +20,7 @@ const notoSans = Noto_Sans({
 export const metadata: Metadata = {
   title: "Mitra Abadi Group | Advanced Coatings & Chemical Solutions",
   description:
-    "Menyediakan solusi inovatif cat, pelapis, dan kimia kualitas tinggi untuk kebutuhan industri dan ritel sejak 2007.",
+    "Menyediakan solusi inovatif cat, pelapis, dan kimia kualitas tinggi untuk kebutuhan industri dan ritel sejak 2006.",
 };
 
 export default function RootLayout({

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import ScaleIn from "../animations/ScaleIn";
 import TextReveal from "../animations/TextReveal";
 import FadeIn from "../animations/FadeIn";
@@ -7,11 +8,13 @@ const ContactHero: React.FC = () => {
   return (
     <section className="relative w-full bg-navy overflow-hidden">
       <ScaleIn className="absolute inset-0 w-full h-full">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{
-            backgroundImage: "url('/assets/img/contact-hero.avif')",
-          }}
+        <Image
+          src="/assets/img/contact-hero.avif"
+          alt="Hubungi Mitra Abadi Group"
+          fill
+          priority={true}
+          className="object-cover object-center opacity-30"
+          sizes="100vw"
         />
       </ScaleIn>
 

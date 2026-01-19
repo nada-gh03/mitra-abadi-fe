@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import {
   motion,
   useScroll,
   useTransform,
   useSpring,
   useInView,
-  MotionValue,
 } from "framer-motion";
 
 const STEPS = [
@@ -148,22 +148,26 @@ const TimelineItem = ({
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative z-10 h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white group"
         >
+          {/* Parallax Wrapper */}
           <motion.div
             style={{ y: yParallax, scale: 1.1 }}
-            className="w-full h-full bg-cover bg-center will-change-transform"
+            className="w-full h-full relative will-change-transform"
           >
-            <div
-              className="w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: `url('${step.imageUrl}')` }}
+            <Image
+              src={step.imageUrl}
+              alt={step.title}
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </motion.div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
 
           <div
             className={`absolute bottom-0 ${
               !isEven ? "left-0" : "right-0"
-            } w-1/3 h-1.5 bg-primary group-hover:w-full transition-all duration-700`}
+            } w-1/3 h-1.5 bg-primary group-hover:w-full transition-all duration-700 z-20`}
           />
         </motion.div>
       </div>
