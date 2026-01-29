@@ -3,12 +3,23 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+
 import FadeIn from "../animations/FadeIn";
 import ScaleIn from "../animations/ScaleIn";
 import TextReveal from "../animations/TextReveal";
 import CountUp from "../animations/CountUp";
 
 const Hero: React.FC = () => {
+  const heroImages = [
+    "/assets/img/main-hero.avif",
+    "/assets/img/main-hero2.avif",
+    "/assets/img/main-hero3.avif",
+  ];
+
   const scrollToFeatures = () => {
     const element = document.getElementById("features");
     if (element) {
@@ -57,7 +68,7 @@ const Hero: React.FC = () => {
               <FadeIn delay={0.8} className="max-w-xl">
                 <h2 className="text-gray-600 text-lg lg:text-xl font-body leading-relaxed">
                   Menyediakan solusi inovatif cat, pelapis, dan kimia kualitas
-                  tinggi untuk kebutuhan industri dan ritel sejak 2007.
+                  tinggi untuk kebutuhan industri dan ritel sejak 2006.
                 </h2>
               </FadeIn>
             </div>
@@ -94,14 +105,30 @@ const Hero: React.FC = () => {
 
             <ScaleIn delay={0.2} className="relative w-full h-full">
               <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform rotate-2 hover:rotate-0 transition-transform duration-700">
-                <Image
-                  src="/assets/img/main-hero.avif"
-                  alt="Pabrik Cat Mitra Abadi Group"
-                  fill
-                  priority={true}
-                  className="object-cover object-center"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+                <Swiper
+                  modules={[Autoplay, EffectFade]}
+                  effect="fade"
+                  loop={true}
+                  speed={1000}
+                  autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                  }}
+                  className="w-full h-full rounded-3xl"
+                >
+                  {heroImages.map((img, index) => (
+                    <SwiperSlide key={index} className="relative w-full h-full">
+                      <Image
+                        src={img}
+                        alt={`Slide ${index + 1}`}
+                        fill
+                        priority={index === 0}
+                        className="object-cover object-[30%_50%] scale-120"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
 
                 <FadeIn
                   delay={1.2}

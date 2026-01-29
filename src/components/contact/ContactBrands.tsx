@@ -7,11 +7,11 @@ import ScaleIn from "../animations/ScaleIn";
 
 const ContactBrands: React.FC = () => {
   const brands = [
-    {
-      id: "TWA",
-      name: "PT Trimitra Warna Abadi",
-      logo: "/assets/logo/logo.png",
-    },
+    // {
+    //   id: "TWA",
+    //   name: "PT Trimitra Warna Abadi",
+    //   logo: "/assets/logo/logo.png",
+    // },
     {
       id: "MC",
       name: "PT Mitra Abadi Sinar Selaras",

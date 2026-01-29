@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center gap-4 text-white mb-6">
               <div className="relative w-12 h-12 bg-transparent rounded-xl flex items-center justify-center p-1 shadow-lg shadow-white/5">
                 <Image
-                  src="/assets/logo/logo.png"
+                  src="/assets/logo/mass-logo.png"
                   alt="Mitra Abadi Group Logo"
                   fill
                   className="object-contain"
@@ -109,7 +109,7 @@ const Footer: React.FC = () => {
                       {item}
                     </Link>
                   </li>
-                )
+                ),
               )}
             </ul>
           </div>

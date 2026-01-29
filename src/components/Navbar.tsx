@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
             }`}
           >
             <Image
-              src="/assets/logo/logo.png"
+              src="/assets/logo/mass-logo.png"
               alt="Mitra Abadi Group Logo"
               fill
               className="object-contain"
@@ -80,11 +80,11 @@ const Navbar: React.FC = () => {
                   : "opacity-100 h-auto"
               }`}
             >
-              <span>Trimitra</span>
-              <span className="text-primary">•</span>
+              {/* <span>Trimitra</span>
+              <span className="text-primary">•</span> */}
               <span>PT Mitra Abadi Sinar Selaras</span>
-              <span className="text-primary">•</span>
-              <span>MASS</span>
+              {/* <span className="text-primary">•</span>
+              <span>MASS</span> */}
             </div>
           </div>
         </Link>

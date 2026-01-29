@@ -4,10 +4,10 @@ import StaggerContainer, { StaggerItem } from "../animations/StaggerContainer";
 
 const Philosophy: React.FC = () => {
   const companies = [
-    {
-      name: "PT TRIMITRA WARNA ABADI",
-      logo: "/assets/logo/logo.png",
-    },
+    // {
+    //   name: "PT TRIMITRA WARNA ABADI",
+    //   logo: "/assets/logo/logo.png",
+    // },
     {
       name: "PT MITRA ABADI SINAR SELARAS",
       logo: "/assets/logo/mass-logo.png",
@@ -70,7 +70,7 @@ const Philosophy: React.FC = () => {
           </p>
         </FadeIn>
 
-        <StaggerContainer className="w-full bg-white rounded-2xl p-8 flex flex-wrap justify-center items-center gap-8 md:gap-16 shadow-lg">
+        <StaggerContainer className="bg-white rounded-2xl p-8 flex flex-wrap justify-center items-center gap-8 md:gap-16 shadow-lg">
           {companies.map((company, idx) => (
             <StaggerItem
               key={idx}
