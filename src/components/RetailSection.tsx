@@ -46,7 +46,7 @@ const RetailSection: React.FC = () => {
             </div>
           </div>
           <div
-            className="absolute right-0 bottom-0 w-1/2 h-full bg-contain bg-right-bottom bg-no-repeat opacity-20 md:opacity-100 pointer-events-none mix-blend-multiply"
+            className="absolute right-0 bottom-0 w-1/2 h-full bg-contain bg-bottom-right bg-no-repeat opacity-20 md:opacity-100 pointer-events-none mix-blend-multiply"
             style={{
               backgroundImage: `url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80')`,
             }}
@@ -54,7 +54,7 @@ const RetailSection: React.FC = () => {
         </div>
 
         <div className="relative bg-[#1e293b] p-8 md:p-12 flex flex-col justify-center gap-6 min-h-[400px] text-white">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent pointer-events-none"></div>
+          <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-transparent pointer-events-none"></div>
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary text-navy text-xs font-bold mb-4 shadow-sm">
               <span className="material-symbols-outlined text-sm">
@@ -82,7 +82,7 @@ const RetailSection: React.FC = () => {
             }}
           >
             <div
-              className="absolute right-0 bottom-0 w-full h-full bg-contain bg-right-bottom bg-no-repeat opacity-30"
+              className="absolute right-0 bottom-0 w-full h-full bg-contain bg-bottom-right bg-no-repeat opacity-30"
               style={{
                 backgroundImage: `url('https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?auto=format&fit=crop&q=80')`,
               }}

@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
             </FadeIn>
           </div>
 
-          <div className="relative w-full aspect-[4/3] lg:aspect-square max-h-[600px] flex items-center justify-center">
+          <div className="relative min-w-100 aspect-4/3 lg:aspect-square max-h-[600px] flex items-center justify-center mt-8 lg:mt-0">
             <FadeIn
               delay={0.5}
               className="absolute top-10 right-10 w-48 h-48 bg-primary/20 rounded-full blur-3xl"

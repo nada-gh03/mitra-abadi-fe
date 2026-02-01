@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const ProcessBenefits: React.FC = () => {
   return (
-    <section className="bg-[#f8f7f5] py-24 relative border-t border-gray-200 overflow-hidden">
+    <section className="bg-background-light py-24 relative border-t border-gray-200 overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -45,7 +45,7 @@ const ProcessBenefits: React.FC = () => {
                   </FadeIn>
                 </div>
 
-                <FadeIn delay={0.4} className="flex-grow">
+                <FadeIn delay={0.4} className="grow">
                   <p className="text-gray-500 leading-relaxed text-lg">
                     Kami menjunjung tinggi standar K3 di setiap lini produksi.
                     Prosedur penanganan bahan kimia yang ketat dan penggunaan
@@ -92,7 +92,7 @@ const ProcessBenefits: React.FC = () => {
                   </FadeIn>
                 </div>
 
-                <FadeIn delay={0.5} className="flex-grow">
+                <FadeIn delay={0.5} className="grow">
                   <p className="text-gray-500 leading-relaxed text-lg">
                     Komitmen keberlanjutan melalui sistem pengolahan limbah
                     terpadu dan formulasi ramah lingkungan (Low VOC). Kami

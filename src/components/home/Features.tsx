@@ -25,7 +25,7 @@ const Features: React.FC = () => {
       id="features"
       className="py-20 bg-white relative overflow-hidden scroll-mt-20"
     >
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-gray-200 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-10">
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">

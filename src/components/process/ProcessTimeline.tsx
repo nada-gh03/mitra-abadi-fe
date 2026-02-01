@@ -162,7 +162,7 @@ const TimelineItem = ({
             />
           </motion.div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-navy/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
 
           <div
             className={`absolute bottom-0 ${
@@ -213,7 +213,7 @@ const ProcessTimeline: React.FC = () => {
 
         <motion.div
           style={{ height: heightStyle }}
-          className="absolute left-6 md:left-1/2 top-0 w-[4px] bg-gradient-to-b from-primary via-yellow-300 to-primary shadow-[0_0_20px_rgba(253,184,19,0.6)] md:-translate-x-1/2 z-10 rounded-full origin-top will-change-[height]"
+          className="absolute left-6 md:left-1/2 top-0 w-[4px] bg-linear-to-b from-primary via-yellow-300 to-primary shadow-[0_0_20px_rgba(253,184,19,0.6)] md:-translate-x-1/2 z-10 rounded-full origin-top will-change-[height]"
         />
 
         <div className="flex flex-col relative z-10 pt-10">
