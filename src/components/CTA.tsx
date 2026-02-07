@@ -17,7 +17,7 @@ const CTA: React.FC = () => {
         </div>
         <Link
           href="/products"
-          className="flex-shrink-0 bg-primary hover:bg-yellow-400 text-navy font-bold py-4 px-8 rounded-full shadow-lg shadow-primary/20 transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2 group"
+          className="shrink-0 bg-primary hover:bg-yellow-400 text-navy font-bold py-4 px-8 rounded-full shadow-lg shadow-primary/20 transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2 group"
         >
           <span>Lihat Katalog Produk</span>
           <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
