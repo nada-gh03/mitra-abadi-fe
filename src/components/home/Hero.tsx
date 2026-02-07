@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
@@ -20,6 +21,26 @@ const Hero: React.FC = () => {
     "/assets/img/main-hero3.avif",
   ];
 
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const springConfig = { damping: 25, stiffness: 150 };
+  const mouseXSpring = useSpring(mouseX, springConfig);
+  const mouseYSpring = useSpring(mouseY, springConfig);
+  const mouseXSpringSlow = useSpring(mouseX, { ...springConfig, damping: 40 });
+  const mouseYSpringSlow = useSpring(mouseY, { ...springConfig, damping: 40 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const { innerWidth, innerHeight } = window;
+      mouseX.set(e.clientX - innerWidth / 2);
+      mouseY.set(e.clientY - innerHeight / 2);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
   const scrollToFeatures = () => {
     const element = document.getElementById("features");
     if (element) {
@@ -29,12 +50,36 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative bg-white overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <motion.div
+          className="absolute top-1/2 left-1/2 bg-navy/20 rounded-full blur-[120px] mix-blend-multiply"
+          style={{
+            width: 600,
+            height: 600,
+            x: mouseXSpring,
+            y: mouseYSpring,
+            translateX: "-50%",
+            translateY: "-50%",
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 bg-primary/30 rounded-full blur-[100px] mix-blend-multiply"
+          style={{
+            width: 400,
+            height: 400,
+            x: mouseXSpringSlow,
+            y: mouseYSpringSlow,
+            translateX: "-40%",
+            translateY: "-40%",
+          }}
+        />
+      </div>
       <FadeIn
         delay={0.5}
         direction="left"
-        className="absolute right-0 top-0 h-full w-1/2 pointer-events-none z-0"
+        className="absolute right-0 top-0 h-full w-1/2 pointer-events-none z-0 opacity-50"
       >
-        <div className="h-full w-full bg-[#f0f4f8] -skew-x-12 translate-x-32 hidden lg:block opacity-50"></div>
+        <div className="h-full w-full bg-navy -skew-x-12 translate-x-32 hidden lg:block"></div>
       </FadeIn>
 
       <div className="max-w-7xl mx-auto px-4 md:px-10 py-16 lg:py-24 relative z-10">
@@ -49,13 +94,13 @@ const Hero: React.FC = () => {
                 <div className="relative inline-block w-fit">
                   <TextReveal
                     text="Advanced Coatings"
-                    className="text-navy text-4xl lg:text-6xl font-black leading-tight tracking-tight"
+                    className="text-primary text-4xl lg:text-6xl font-black leading-tight tracking-tight"
                     delay={0.3}
                   />
                   <FadeIn
                     delay={1.2}
                     direction="right"
-                    className="absolute bottom-2 left-0 w-full h-3 bg-primary/30 -z-10"
+                    className="absolute bottom-2 left-0 w-full h-3 bg-primary/10 -z-10"
                   />
                 </div>
                 <TextReveal
@@ -76,7 +121,7 @@ const Hero: React.FC = () => {
             <FadeIn delay={1} className="flex flex-wrap gap-4">
               <button
                 onClick={scrollToFeatures}
-                className="flex items-center justify-center rounded-full h-12 px-8 bg-primary hover:bg-yellow-400 transition-colors text-navy text-base font-bold shadow-lg shadow-yellow-200 cursor-pointer hover:scale-105 active:scale-95 duration-300"
+                className="flex items-center justify-center rounded-full h-12 px-8 bg-primary hover:bg-yellow-400 transition-colors text-navy text-base font-bold shadow-lg shadow-yellow-900/20 cursor-pointer hover:scale-105 active:scale-95 duration-300"
               >
                 <span>Discover Our Solutions</span>
                 <span className="material-symbols-outlined ml-2 text-xl">
@@ -94,17 +139,8 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="relative min-w-100 aspect-4/3 lg:aspect-square max-h-[600px] flex items-center justify-center mt-8 lg:mt-0">
-            <FadeIn
-              delay={0.5}
-              className="absolute top-10 right-10 w-48 h-48 bg-primary/20 rounded-full blur-3xl"
-            />
-            <FadeIn
-              delay={0.7}
-              className="absolute bottom-10 left-10 w-64 h-64 bg-navy/10 rounded-full blur-3xl"
-            />
-
             <ScaleIn delay={0.2} className="relative w-full h-full">
-              <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform rotate-2 hover:rotate-0 transition-transform duration-700">
+              <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border-[6px] border-white transform rotate-2 hover:rotate-0 transition-transform duration-700 z-10 bg-white">
                 <Swiper
                   modules={[Autoplay, EffectFade]}
                   effect="fade"
@@ -114,7 +150,7 @@ const Hero: React.FC = () => {
                     delay: 4000,
                     disableOnInteraction: false,
                   }}
-                  className="w-full h-full rounded-3xl"
+                  className="w-full h-full rounded-2xl"
                 >
                   {heroImages.map((img, index) => (
                     <SwiperSlide key={index} className="relative w-full h-full">
@@ -123,7 +159,7 @@ const Hero: React.FC = () => {
                         alt={`Slide ${index + 1}`}
                         fill
                         priority={index === 0}
-                        className="object-cover object-[30%_50%] scale-120"
+                        className="object-cover object-[30%_50%]"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </SwiperSlide>
@@ -135,7 +171,7 @@ const Hero: React.FC = () => {
                   direction="up"
                   className="absolute bottom-6 right-6 z-20"
                 >
-                  <div className="bg-white/95 backdrop-blur px-6 py-4 rounded-xl shadow-lg max-w-[200px] border-l-4 border-primary">
+                  <div className="bg-white/90 backdrop-blur px-6 py-4 rounded-xl shadow-lg max-w-[200px] border-l-4 border-primary">
                     <p className="text-navy font-bold text-lg leading-none">
                       <CountUp to={15} duration={2.0} delay={1} />
                       <span>+</span>
@@ -153,14 +189,14 @@ const Hero: React.FC = () => {
               direction="left"
               className="absolute -z-10 -bottom-6 -right-6"
             >
-              <div className="w-32 h-32 bg-primary rounded-xl rotate-12"></div>
+              <div className="w-32 h-32 bg-primary/50 rounded-xl rotate-12 backdrop-blur-sm"></div>
             </FadeIn>
             <FadeIn
               delay={1.4}
               direction="right"
               className="absolute -z-10 -top-6 -left-6"
             >
-              <div className="w-32 h-32 bg-navy rounded-full"></div>
+              <div className="w-32 h-32 bg-navy/10 rounded-full backdrop-blur-sm"></div>
             </FadeIn>
           </div>
         </div>
