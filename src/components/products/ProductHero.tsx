@@ -8,7 +8,7 @@ const ProductHero: React.FC = () => {
   return (
     <section className="relative w-full bg-navy py-16 lg:py-24 px-4 overflow-hidden">
       <div className="absolute inset-0 w-full h-full z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/60 z-10"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/90 to-navy/60 z-10"></div>
         <ScaleIn className="w-full h-full relative">
           <Image
             src="/assets/img/product-hero.avif"

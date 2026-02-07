@@ -20,11 +20,11 @@ const AboutHero: React.FC = () => {
         />
       </ScaleIn>
 
-      <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto">
         <div className="relative mb-4">
           <TextReveal
             text="Tentang Mitra Abadi Group"
-            className="text-4xl md:text-5xl font-bold text-white relative inline-block"
+            className="text-white text-4xl lg:text-5xl font-black leading-tight tracking-[-0.033em] justify-center"
           />
           <FadeIn
             delay={0.8}

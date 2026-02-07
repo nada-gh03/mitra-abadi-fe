@@ -90,7 +90,7 @@ const Products: React.FC = () => {
                     <h3 className="text-xl font-bold text-navy mb-3 group-hover:text-primary transition-colors font-display">
                       {p.title}
                     </h3>
-                    <p className="text-gray-600 mb-6 flex-grow leading-relaxed">
+                    <p className="text-gray-600 mb-6 grow leading-relaxed">
                       {p.desc}
                     </p>
                     <div className="pt-4 border-t border-gray-100 mt-auto">

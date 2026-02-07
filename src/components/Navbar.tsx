@@ -44,12 +44,12 @@ const Navbar: React.FC = () => {
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-[#e5e7eb] shadow-sm transition-all duration-300">
       <div
         className={`px-4 md:px-10 flex items-center justify-between max-w-7xl mx-auto transition-all duration-300 ease-in-out ${
-          isScrolled ? "py-3" : "py-5"
+          isScrolled ? "py-3" : "py-4"
         }`}
       >
         <Link
           href="/"
-          className="flex items-center gap-4 text-navy group z-50 relative"
+          className="flex items-center gap-3 md:gap-4 text-navy group z-50 relative"
         >
           <div
             className={`relative transition-all duration-300 group-hover:scale-105 ${
@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
             }`}
           >
             <Image
-              src="/assets/logo/logo.png"
+              src="/assets/logo/mass-logo.png"
               alt="Mitra Abadi Group Logo"
               fill
               className="object-contain"
@@ -65,7 +65,21 @@ const Navbar: React.FC = () => {
             />
           </div>
 
-          <div className="flex flex-col">
+          <div
+            className={`relative transition-all duration-300 group-hover:scale-105 ${
+              isScrolled ? "w-10 h-10" : "w-12 h-12"
+            }`}
+          >
+            <Image
+              src="/assets/logo/selaras-logo.png"
+              alt="Second Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+
+          <div className="flex flex-col ml-1">
             <h2
               className={`text-navy font-bold leading-tight tracking-tight transition-all duration-300 ${
                 isScrolled ? "text-lg" : "text-xl"
@@ -73,19 +87,6 @@ const Navbar: React.FC = () => {
             >
               Mitra Abadi Group
             </h2>
-            <div
-              className={`flex gap-2 text-[10px] text-gray-500 font-medium tracking-wide uppercase mt-0.5 transition-all duration-300 ${
-                isScrolled
-                  ? "opacity-0 h-0 overflow-hidden"
-                  : "opacity-100 h-auto"
-              }`}
-            >
-              <span>Trimitra</span>
-              <span className="text-primary">•</span>
-              <span>PT Mitra Abadi Sinar Selaras</span>
-              <span className="text-primary">•</span>
-              <span>MASS</span>
-            </div>
           </div>
         </Link>
 

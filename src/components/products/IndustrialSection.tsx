@@ -21,9 +21,9 @@ const IndustrialSection: React.FC = () => {
       ],
     },
     {
-      title: "Synthetic Rubber",
+      title: "Synthetic Rubber Coatings",
       img: "/assets/img/product-rubber.avif",
-      features: ["Gloss & Matt for PVC/PU", "Outsole Coating"],
+      features: ["Gloss & Matt for PVC, TPR & PU", "Outsole Coating"],
     },
     {
       title: "Metal Coatings",
@@ -37,6 +37,16 @@ const IndustrialSection: React.FC = () => {
         "Roof Coating/Waterproofing",
         "Epoxy Flooring",
         "Wall Coating",
+      ],
+    },
+    {
+      title: "Speciality Coatings",
+      img: "/assets/img/product-speciality.avif",
+      features: [
+        "UV Coating",
+        "Protective Coating",
+        "Zinc Rich Coating",
+        "PU Coating",
       ],
     },
   ];

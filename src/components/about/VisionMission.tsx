@@ -32,7 +32,7 @@ const VisionMission: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-40 bg-[#f8f7f5]">
+    <section className="py-20 px-4 sm:px-6 lg:px-40 bg-background-light">
       <div className="max-w-[1280px] mx-auto flex flex-col gap-12">
         <FadeIn className="text-center mb-4">
           <h2 className="text-3xl md:text-4xl font-bold text-navy">
@@ -50,7 +50,7 @@ const VisionMission: React.FC = () => {
               visibility
             </span>
           </div>
-          <div className="flex-shrink-0 size-20 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+          <div className="shrink-0 size-20 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
             <span className="material-symbols-outlined text-4xl">
               lightbulb
             </span>

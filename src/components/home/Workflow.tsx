@@ -58,14 +58,14 @@ const Workflow: React.FC = () => {
             delay={0.2}
             className="hidden lg:block absolute top-9 left-0 w-full h-1 bg-white/10 rounded-full overflow-hidden"
           >
-            <div className="h-full w-full bg-gradient-to-r from-primary/20 via-primary to-primary/20 shadow-[0_0_15px_rgba(253,182,18,0.5)] animate-pulse"></div>
+            <div className="h-full w-full bg-linear-to-r from-primary/20 via-primary to-primary/20 shadow-[0_0_15px_rgba(253,182,18,0.5)] animate-pulse"></div>
           </FadeIn>
 
           <FadeIn
             delay={0.2}
             className="lg:hidden absolute left-8 top-0 h-full w-1 bg-white/10 rounded-full overflow-hidden"
           >
-            <div className="w-full h-full bg-gradient-to-b from-primary/20 via-primary to-primary/20"></div>
+            <div className="w-full h-full bg-linear-to-b from-primary/20 via-primary to-primary/20"></div>
           </FadeIn>
 
           <StaggerContainer className="grid grid-cols-1 lg:grid-cols-6 gap-10 lg:gap-4">
