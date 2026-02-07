@@ -5,14 +5,17 @@ import ProcessBenefits from "@/components/process/ProcessBenefits";
 import ProcessCTA from "@/components/process/ProcessCTA";
 
 export const metadata: Metadata = {
-  title: "Our Process | Mitra Abadi Group",
+  title: "Proses Kerja & SOP",
   description:
-    "Pelajari standar operasional dan kualitas kami, mulai dari analisis kebutuhan, formulasi R&D, hingga kontrol kualitas dan layanan purna jual.",
+    "Standar operasional Mitra Abadi Group mulai dari analisis kebutuhan, R&D, pengujian sampel, hingga produksi massal dan kontrol kualitas.",
+  alternates: {
+    canonical: "/process",
+  },
 };
 
 export default function ProcessPage() {
   return (
-    <main className="flex flex-col min-h-screen">
+    <main>
       <ProcessHero />
       <ProcessTimeline />
       <ProcessBenefits />
