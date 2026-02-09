@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
 
 @theme {
   --color-primary: #fdb612;
@@ -30,4 +31,13 @@ body {
   background-color: var(--color-background-light);
   color: var(--color-navy);
   font-family: var(--font-display);
+}
+
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.leaflet-container {
+  font-family: var(--font-display) !important;
 }

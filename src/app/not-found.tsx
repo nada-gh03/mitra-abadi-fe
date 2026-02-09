@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh] px-6 text-center bg-[#f8f7f5] relative overflow-hidden">
+    <div className="flex flex-col items-center justify-center min-h-[80vh] px-6 text-center bg-background-light relative overflow-hidden">
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
@@ -20,7 +20,7 @@ export default function NotFound() {
           </span>
         </div>
 
-        <div className="absolute -top-4 -right-4 bg-navy text-white font-black text-xl px-4 py-2 rounded-lg -rotate-12 border-4 border-[#f8f7f5] shadow-lg z-20">
+        <div className="absolute -top-4 -right-4 bg-navy text-white font-black text-xl px-4 py-2 rounded-lg -rotate-12 border-4 border-background-light shadow-lg z-20">
           Error 404
         </div>
       </div>

@@ -60,14 +60,14 @@ ${formData.message}
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
   return (
-    <section className="py-16 px-6 lg:px-10 flex justify-center bg-[#f8f7f5] overflow-hidden">
+    <section className="py-16 px-6 lg:px-10 flex justify-center bg-background-light overflow-hidden">
       <div className="w-full max-w-[1280px]">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           <FadeIn

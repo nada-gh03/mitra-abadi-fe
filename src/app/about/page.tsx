@@ -6,14 +6,17 @@ import Philosophy from "@/components/about/Philosophy";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = {
-  title: "About Us | Mitra Abadi Group",
+  title: "Tentang Kami",
   description:
-    "Pelajari sejarah, visi, misi, dan filosofi Mitra Abadi Group dalam memberikan solusi kimia industri terbaik sejak 2006.",
+    "Mengenal Mitra Abadi Group, ahli cat dan pelapis industri sejak 2006. Visi kami memberikan solusi inovatif dan ramah lingkungan bagi pasar global.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {
   return (
-    <main className="flex flex-col min-h-screen">
+    <main>
       <AboutHero />
       <History />
       <VisionMission />

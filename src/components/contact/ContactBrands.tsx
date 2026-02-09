@@ -26,7 +26,7 @@ const ContactBrands: React.FC = () => {
 
   return (
     <section className="py-20 px-6 lg:px-10 bg-white border-t border-gray-100 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-30 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[20px_20px] opacity-30 pointer-events-none"></div>
 
       <div className="flex flex-col items-center justify-center gap-12 max-w-[1280px] mx-auto relative z-10">
         <ScaleIn>
@@ -48,7 +48,6 @@ const ContactBrands: React.FC = () => {
                   transition-all duration-500 transform group-hover:-translate-y-2 group-hover:shadow-xl group-hover:border-primary/30
                 `}
               >
-                {/* Logo Image */}
                 <div className="relative w-full h-full filter group-hover:grayscale-0 transition-all duration-500">
                   <Image
                     src={brand.logo}
