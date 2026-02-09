@@ -2,26 +2,25 @@ import type { Metadata } from "next";
 import ContactHero from "@/components/contact/ContactHero";
 import ContactInfo from "@/components/contact/ContactInfo";
 import ContactForm from "@/components/contact/ContactForm";
-import MapWrapper from "@/components/contact/MapWrapper";
+import ContactMap from "@/components/contact/ContactMap";
+import ContactBrands from "@/components/contact/ContactBrands";
 
 export const metadata: Metadata = {
-  title: "Hubungi Kami | Lokasi Tangerang",
+  title: "Contact Us | Mitra Abadi Group",
   description:
-    "Hubungi Mitra Abadi Group di Tangerang untuk konsultasi kebutuhan cat industri dan kimia. Layanan pelanggan profesional untuk solusi terbaik.",
-  alternates: {
-    canonical: "/contact",
-  },
+    "Hubungi tim ahli kami untuk konsultasi produk, permintaan sampel, atau informasi lebih lanjut tentang solusi cat dan kimia industri.",
 };
 
 export default function ContactPage() {
   return (
     <main>
       <ContactHero />
-      <div className="max-w-7xl mx-auto px-4 py-16 grid lg:grid-cols-2 gap-12">
-        <ContactInfo />
-        <ContactForm />
-      </div>
-      <MapWrapper />
+
+      <ContactInfo />
+      <ContactForm />
+
+      <ContactMap />
+      <ContactBrands />
     </main>
   );
 }

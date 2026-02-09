@@ -58,7 +58,7 @@ const ContactInfo: React.FC = () => {
               <p className="mb-2">
                 Kirim penawaran atau pertanyaan resmi ke alamat email kami.
               </p>
-              <div className="flex flex-col gap-1 break-words">
+              <div className="flex flex-col gap-1 wrap-break-word">
                 <a
                   className="text-navy font-medium hover:text-primary transition-colors text-sm"
                   href="mailto:mass_chemical@yahoo.com"
