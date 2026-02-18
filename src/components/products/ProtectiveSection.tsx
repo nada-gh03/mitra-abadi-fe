@@ -32,7 +32,6 @@ const ProtectiveSection: React.FC = () => {
     { code: "MEK", name: "Methyl Ethyl Ketone" },
     { code: "IPA", name: "Isopropyl Alcohol" },
     { code: "DAA", name: "Diacetone Alcohol" },
-    { code: "TOL", name: "Toluena" },
   ];
 
   return (

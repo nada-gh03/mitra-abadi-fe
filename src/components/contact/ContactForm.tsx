@@ -15,11 +15,24 @@ const ContactForm: React.FC = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSelection, setShowSelection] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setShowSelection(true);
+  };
 
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const sendViaWhatsApp = () => {
+    setIsSubmitting(true);
     const phoneNumber = "6289526543505";
 
     const textMessage = `
@@ -40,30 +53,53 @@ ${formData.message}
     `.trim();
 
     const encodedMessage = encodeURIComponent(textMessage);
-
     const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
     setTimeout(() => {
       window.open(waUrl, "_blank");
-      setIsSubmitting(false);
-      setFormData({
-        name: "",
-        company: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
-    }, 1000);
+      resetForm();
+    }, 800);
   };
 
-  const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
-  ) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
+  const sendViaEmail = () => {
+    setIsSubmitting(true);
+    const emailTarget = "info@mitraabadi-group.com";
+    const subject = `Konsultasi: ${formData.subject} - ${formData.name}`;
+
+    const body = `
+Halo Mitra Abadi Group,
+
+Berikut detail permintaan konsultasi saya:
+
+Nama: ${formData.name}
+Perusahaan: ${formData.company || "-"}
+Email: ${formData.email}
+No. HP: ${formData.phone}
+Kategori: ${formData.subject}
+
+Pesan:
+${formData.message}
+    `.trim();
+
+    const mailtoUrl = `mailto:${emailTarget}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    setTimeout(() => {
+      window.location.href = mailtoUrl;
+      resetForm();
+    }, 800);
+  };
+
+  const resetForm = () => {
+    setIsSubmitting(false);
+    setShowSelection(false);
+    setFormData({
+      name: "",
+      company: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+    });
   };
 
   return (
@@ -84,8 +120,8 @@ ${formData.message}
               kami?
             </p>
             <p className="text-[#4a5568] text-base leading-relaxed">
-              Isi formulir di samping dan tim ahli kami akan segera menghubungi
-              Anda via WhatsApp untuk respon yang lebih cepat.
+              Isi formulir di samping dan pilih metode komunikasi yang paling
+              nyaman untuk Anda.
             </p>
 
             <div className="mt-8 p-6 bg-white rounded-lg border border-gray-100 hidden lg:block shadow-sm">
@@ -240,29 +276,65 @@ ${formData.message}
                 </div>
 
                 <button
-                  disabled={isSubmitting}
-                  className="mt-2 w-full cursor-pointer rounded-lg bg-primary px-8 py-4 text-center text-base font-bold text-navy shadow-md transition-all hover:bg-[#e5a00d] hover:shadow-lg active:scale-[0.99] group flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="mt-2 w-full cursor-pointer rounded-lg bg-primary px-8 py-4 text-center text-base font-bold text-navy shadow-md transition-all hover:bg-[#e5a00d] hover:shadow-lg active:scale-[0.99] group flex items-center justify-center gap-2"
                   type="submit"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <span className="size-5 border-2 border-navy border-t-transparent rounded-full animate-spin"></span>
-                      <span>Mengalihkan ke WhatsApp...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Kirim Pesan Sekarang</span>
-                      <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
-                        send
-                      </span>
-                    </>
-                  )}
+                  <span>Kirim Pesan Sekarang</span>
+                  <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
+                    send
+                  </span>
                 </button>
               </form>
             </ScaleIn>
           </div>
         </div>
       </div>
+
+      {showSelection && (
+        <div className="fixed inset-0 z-100 flex items-center justify-center bg-navy/60 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-2xl p-8 max-w-sm w-full shadow-2xl border border-gray-100 animate-in fade-in zoom-in duration-300">
+            <h3 className="text-navy text-xl font-bold mb-2 text-center">
+              Kirim
+            </h3>
+            <p className="text-gray-500 text-sm text-center mb-6">
+              Pilih metode pengiriman pesan.
+            </p>
+
+            <div className="flex flex-col gap-3">
+              <button
+                onClick={sendViaWhatsApp}
+                disabled={isSubmitting}
+                className="flex items-center justify-center gap-3 bg-[#25D366] text-white font-bold py-4 rounded-xl hover:opacity-90 transition-all shadow-md active:scale-[0.98] disabled:opacity-50"
+              >
+                <span className="material-symbols-outlined">chat</span> WhatsApp
+              </button>
+
+              <button
+                onClick={sendViaEmail}
+                disabled={isSubmitting}
+                className="flex items-center justify-center gap-3 bg-navy text-white font-bold py-4 rounded-xl hover:bg-navy-light transition-all shadow-md active:scale-[0.98] disabled:opacity-50"
+              >
+                <span className="material-symbols-outlined">mail</span> Email
+                Resmi
+              </button>
+
+              <button
+                onClick={() => setShowSelection(false)}
+                className="mt-3 text-gray-400 text-sm font-bold hover:text-red-500 transition-colors py-2"
+              >
+                Batalkan
+              </button>
+            </div>
+
+            {isSubmitting && (
+              <div className="mt-4 flex items-center justify-center gap-2 text-navy text-xs font-bold animate-pulse">
+                <span className="size-3 border-2 border-navy border-t-transparent rounded-full animate-spin"></span>
+                Menyiapkan pesan...
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
