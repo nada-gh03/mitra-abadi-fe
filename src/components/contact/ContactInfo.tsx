@@ -61,9 +61,9 @@ const ContactInfo: React.FC = () => {
               <div className="flex flex-col gap-1 wrap-break-word">
                 <a
                   className="text-navy font-medium hover:text-primary transition-colors text-sm"
-                  href="mailto:mass_chemical@yahoo.com"
+                  href="mailto:info@mitraabadi-group.com"
                 >
-                  mass_chemical@yahoo.com
+                  info@mitraabadi-group.com
                 </a>
                 <a
                   className="text-navy font-medium hover:text-primary transition-colors text-sm"
